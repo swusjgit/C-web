@@ -1,6 +1,7 @@
 {
   "name": "cspj-frontend",
   "version": "0.1.0",
+  "description": "数据谷中学 C++ 学习网站前端",
   "private": true,
   "scripts": {
     "dev": "next dev",
