@@ -1,0 +1,22 @@
+.DS_Store
+
+# Dependencies
+node_modules/
+frontend/node_modules/
+
+# Next.js
+frontend/.next/
+frontend/out/
+frontend/tsconfig.tsbuildinfo
+frontend/public/media
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local databases and secrets
+*.db
+.env
+backend/.env

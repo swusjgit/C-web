@@ -1,0 +1,622 @@
+[
+  {
+    "id": 1,
+    "title": "计算机系统组成与基本操作",
+    "slug": "computer-basics",
+    "content": "# 计算机系统组成与基本操作\n\n## 本章简介\n本章介绍计算机的基本构成、Windows/Linux操作系统基础操作、文件管理，以及竞赛环境简介。\n\n---\n\n## 1. 计算机基本构成\n\n计算机由以下硬件组成：\n\n| 硬件 | 作用 |\n|------|------|\n| **CPU**（中央处理器） | 执行计算和指令，计算机的大脑 |\n| **内存**（RAM） | 临时存储程序和数据，断电后丢失 |\n| **硬盘** | 永久存储数据，断电后保留 |\n| **输入设备** | 键盘、鼠标等，向计算机输入信息 |\n| **输出设备** | 显示器、打印机等，输出计算结果 |\n\n**冯·诺依曼体系**：程序和数据都存在内存中，CPU从内存读取指令执行。\n\n---\n\n## 2. Windows基本操作\n\n### 文件与目录操作\n\n- **创建文件夹**：右键 → 新建文件夹，或 `mkdir` 命令\n- **复制文件**：`Ctrl+C` 复制，`Ctrl+V` 粘贴\n- **移动文件**：拖动或 `Ctrl+X` 剪切 + `Ctrl+V` 粘贴\n- **删除文件**：`Delete` 删除到回收站，`Shift+Delete` 直接删除\n\n### 常用快捷键\n\n| 快捷键 | 功能 |\n|--------|------|\n| `Ctrl+C` | 复制 |\n| `Ctrl+V` | 粘贴 |\n| `Ctrl+Z` | 撤销 |\n| `Ctrl+S` | 保存 |\n| `Alt+Tab` | 切换窗口 |\n\n### 命令行基础\n\n打开\"命令提示符\"（Win+R → 输入`cmd`）：\n\n```bash\ncd Desktop              # 进入桌面\ndir                    # 查看当前目录文件\nmkdir myproject        # 创建文件夹\ndel file.txt           #删除文件\n```\n\n---\n\n## 3. Linux基本概念（了解）\n\n| 命令 | 功能 |\n|------|------|\n| `ls` | 列出文件 |\n| `cd` | 切换目录 |\n| `mkdir` | 创建目录 |\n| `rm` | 删除文件 |\n| `cp` | 复制文件 |\n| `mv` | 移动/重命名文件 |\n\n---\n\n## 4. 程序编译运行基本概念\n\n### 编译型语言 vs 解释型语言\n\nC++是**编译型语言**，源代码需要经过编译器翻译成机器码才能执行：\n\n```\n源代码(.cpp) → 预处理器 → 编译器 → 汇编器 → 链接器 → 可执行文件\n```\n\n### 第一个C++程序\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"Hello, World!\" << endl;\n    return 0;\n}\n```\n\n**操作步骤**（Dev-C++）：\n1. 打开Dev-C++ → 新建源代码\n2. 输入上述代码\n3. 按 `F11` 编译运行\n4. 看到黑色控制台输出 `Hello, World!` 表示成功\n\n---\n\n## 5. NOI历史与竞赛规则（了解）\n\n- **NOI**（全国青少年信息学奥林匹克）是中国最高级别的中学生信息学竞赛\n- **CSP-J**（非专业级软件能力认证-入门级）是NOI系列的第一轮\n- **CSP-S**是提高级\n- 比赛形式：笔试+上机编程\n- 评分：机器评测，AC（正确）得满分\n\n---\n\n## 本章小结\n\n1. 计算机由CPU、内存、硬盘、I/O设备组成\n2. Windows基本操作：文件管理、快捷键、命令行\n3. C++是编译型语言，需要编译才能运行\n4. Dev-C++是最适合初学者的Windows IDE\n5. NOI/CSP是中国中学生信息学竞赛体系\n",
+    "difficulty": 1,
+    "order": 1,
+    "category_name": "基础知识与编程环境",
+    "category_slug": "basics"
+  },
+  {
+    "id": 2,
+    "title": "程序设计语言基础",
+    "slug": "language-basics",
+    "content": "# 程序设计语言基础\n\n## 本章简介\n介绍程序设计语言的基本概念，包括标识符、关键字、常量、变量、表达式等核心元素。\n\n---\n\n## 1. 标识符与关键字\n\n### 标识符\n\n程序中用来命名变量、函数、类等的名称：\n\n```cpp\nint age;        // age 是标识符\ndouble score;   // score 是标识符\nint main() {}   // main 是标识符\n```\n\n**命名规则**：\n- 由字母、数字、下划线组成\n- 不能以数字开头\n- 区分大小写\n- 不能使用关键字\n\n### 关键字\n\nC++保留的具有特殊含义的词，如：`int`、`if`、`for`、`while`、`return`等。\n\n---\n\n## 2. 常量与变量\n\n### 常量\n\n固定不变的值：\n```cpp\nconst int WEEK = 7;       // 整型常量\nconst double PI = 3.14159; // 浮点常量\nconst char grade = 'A';   // 字符常量\n```\n\n### 变量\n\n可以改变值的存储空间：\n```cpp\nint age = 15;        // 整数变量\ndouble score = 92.5; // 小数变量\nchar grade = 'A';   // 字符变量\nbool passed = true; // 布尔变量\n```\n\n---\n\n## 3. 基本数据类型\n\n| 类型 | 说明 | 示例 |\n|------|------|------|\n| `int` | 整数 | `int a = 10;` |\n| `long long` | 大整数 | `long long b = 1e12;` |\n| `float` | 单精度浮点 | `float f = 3.14f;` |\n| `double` | 双精度浮点 | `double d = 3.14159;` |\n| `char` | 字符 | `char c = 'A';` |\n| `bool` | 布尔 | `bool ok = true;` |\n\n---\n\n## 4. 表达式与运算符\n\n```cpp\nint a = 10, b = 3;\n\na + b;   // 加法：13\na - b;   // 减法：7\na * b;   // 乘法：30\na / b;   // 除法：3（整数除法）\na % b;   // 取余：1\n\n// 关系运算\na > b;   // 1 (true)\na == b;  // 0 (false)\n\n// 逻辑运算\n(a > 5) && (b < 5);  // 1 (true)\n!(a == b);            // 1 (true)\n\n// 三目运算\n(a > b) ? a : b;  // 10\n```\n\n---\n\n## 5. 程序设计语言的发展\n\n| 语言 | 特点 | 应用场景 |\n|------|------|---------|\n| C | 面向过程，贴近硬件 | 系统编程、嵌入式 |\n| **C++** | 在C基础上增加面向对象 | 算法竞赛、游戏开发 |\n| Java | 跨平台，面向对象 | 企业应用、Android |\n| Python | 简洁易懂，库丰富 | AI、数据分析、Web |\n\n**CSP-J/CSP-S指定语言：C++**\n\n---\n\n## 本章小结\n\n1. 标识符：变量/函数/类的名称，遵守命名规则\n2. 常量：`const`定义，值不可改变\n3. 变量：可变的存储空间，先声明后使用\n4. 6种基本类型：int、long long、float、double、char、bool\n5. 运算符：算术(`+−* /%`)、关系(`> < == !=`)、逻辑(`&& || !`)、三目(`?:`)\n",
+    "difficulty": 1,
+    "order": 2,
+    "category_name": "基础知识与编程环境",
+    "category_slug": "basics"
+  },
+  {
+    "id": 3,
+    "title": "进制与编码",
+    "slug": "base-and-encoding",
+    "content": "# 进制与编码\n\n## 本章简介\n计算机内部所有数据都用二进制表示。本章介绍位、字节的概念，以及二进制、八进制、十进制、十六进制之间的转换。\n\n---\n\n## 1. 位、字节与字\n\n- **位（bit）**：最小单位，只能是0或1\n- **字节（Byte）**：1 Byte = 8 bit\n- **字（Word）**：CPU一次处理的数据单位（32位/64位系统）\n\n常用换算：\n```\n1 KB = 1024 Byte\n1 MB = 1024 KB\n1 GB = 1024 MB\n```\n\n---\n\n## 2. 二进制\n\n计算机内部使用二进制（基数为2），每位只能是0或1。\n\n二进制转十进制：\n```\n1011₂ = 1×2³ + 0×2² + 1×2¹ + 1×2⁰ = 8 + 0 + 2 + 1 = 11₁₀\n```\n\n十进制转二进制（除2取余）：\n```\n11 ÷ 2 = 5 余 1\n 5 ÷ 2 = 2 余 1\n 2 ÷ 2 = 1 余 0\n 1 ÷ 2 = 0 余 1\n → 1011₂\n```\n\n---\n\n## 3. 八进制与十六进制\n\n| 进制 | 基数 | 数字符号 |\n|------|------|----------|\n| 二进制 | 2 | 0, 1 |\n| 八进制 | 8 | 0~7 |\n| 十进制 | 10 | 0~9 |\n| 十六进制 | 16 | 0~9, A~F |\n\n### C++中的进制表示\n\n```cpp\nint a = 10;     // 十进制\nint b = 0b1010; // 二进制（C++14）\nint c = 012;    // 八进制（前缀0）\nint d = 0xA;    // 十六进制（前缀0x）\n```\n\n---\n\n## 4. ASCII码\n\nASCII码用0~127的数字表示英文字母和常用符号。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    char c = 'A';\n    cout << c << \"的ASCII码是：\" << (int)c << endl;\n    // 输出：A的ASCII码是：65\n\n    cout << (char)97 << endl;  // 输出：a\n    return 0;\n}\n```\n\n常用ASCII：\n- `'0'`~`'9'`：48~57\n- `'A'`~`'Z'`：65~90\n- `'a'`~`'z'`：97~122\n\n---\n\n## 本章小结\n\n1. 1字节=8位，int通常4字节，long long 8字节\n2. 二进制每位权值是2的幂\n3. C++支持二进制（0b）、八进制（0）、十六进制（0x）\n4. ASCII码用数字表示字符，'A'=65，'0'=48\n",
+    "difficulty": 1,
+    "order": 3,
+    "category_name": "基础知识与编程环境",
+    "category_slug": "basics"
+  },
+  {
+    "id": 4,
+    "title": "第一个C++程序与Dev-C++使用",
+    "slug": "first-program",
+    "content": "# 第一个C++程序与Dev-C++使用\n\n## 本章简介\n通过编写和运行第一个C++程序，熟悉开发环境，理解程序的基本结构和调试方法。\n\n---\n\n## 1. Hello World程序详解\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    cout << \"Hello, World!\" << endl;\n    return 0;\n}\n```\n\n| 代码 | 含义 |\n|------|------|\n| `#include <iostream>` | 引入输入输出库 |\n| `using namespace std;` | 使用标准命名空间 |\n| `int main()` | 定义主函数（程序入口） |\n| `cout << ... << endl;` | 输出内容到屏幕 |\n| `return 0;` | 返回0表示正常结束 |\n\n---\n\n## 2. Dev-C++使用方法\n\n### 新建和运行程序\n\n1. **新建**：文件 → 新建 → 源代码（或`Ctrl+N`）\n2. **编写**：输入代码\n3. **编译运行**：按`F11`（或工具栏\"编译运行\"按钮）\n4. **保存**：按`Ctrl+S`保存为`.cpp`文件\n\n### 调试方法\n\n- **编译错误**：红色文字指出错误行和原因，逐个修复\n- **逻辑错误**：运行结果与预期不符，用`cout`在关键位置输出变量值\n- **F8**设置断点，**F7**单步执行\n\n---\n\n## 3. 常见错误\n\n```cpp\n// ❌ 大小写错误\nCout << \"Hello\";  // C是大写\n\n// ✅ 正确\ncout << \"Hello\";\n\n// ❌ 忘记分号\ncout << \"Hello\" << endl  // 少分号\n\n// ❌ 中文括号\ncout << \"Hello\"（ endl）； // 中文括号\n```\n\n---\n\n## 本章小结\n\n1. 程序结构：`头文件 → using namespace → main函数`\n2. Dev-C++是Windows下最适合初学者的C++ IDE\n3. `F11`编译运行，`F7`单步调试\n4. 常见错误：大小写、缺分号、中文标点\n",
+    "difficulty": 1,
+    "order": 4,
+    "category_name": "基础知识与编程环境",
+    "category_slug": "basics"
+  },
+  {
+    "id": 5,
+    "title": "g++编译与调试入门",
+    "slug": "gpp-and-debug",
+    "content": "# g++编译与调试入门\n\n## 本章简介\n介绍Linux命令行下使用g++编译器编译运行C++程序，以及基本的调试概念。\n\n---\n\n## 1. g++编译命令\n\n```bash\ng++ -o program program.cpp\n# program.cpp 是源文件\n# -o program 指定输出可执行文件名为 program\n```\n\n### 常用编译选项\n\n| 选项 | 说明 |\n|------|------|\n| `-o <file>` | 指定输出文件名 |\n| `-Wall` | 开启所有警告 |\n| `-g` | 包含调试信息（用于gdb） |\n| `-O2` | 开启二级优化 |\n| `-std=c++17` | 使用C++17标准 |\n\n```bash\ng++ -Wall -o program program.cpp  # 编译并显示所有警告\n./program                          # 运行程序\n```\n\n---\n\n## 2. 多文件编译\n\n```bash\ng++ -o main main.cpp func.cpp utils.cpp\n```\n\n---\n\n## 3. 编译过程\n\n```\n源文件(.cpp) → 预处理(.i) → 编译(.s) → 汇编(.o) → 链接 → 可执行文件\n```\n\n---\n\n## 4. Code::Blocks（Linux IDE）\n\n1. 官网下载Linux版Code::Blocks\n2. 新建项目 → Console Application\n3. 编写代码，按F9编译运行\n4. 设置断点：点击行号左侧，F8调试\n\n---\n\n## 5. 常见编译错误\n\n| 错误信息 | 原因 |\n|---------|------|\n| `undefined reference to 'main'` | 缺少main函数 |\n| `permission denied` | 没有可执行权限，执行`chmod +x program` |\n| `fatal error: xxx.h: No such file` | 头文件路径不对 |\n\n```bash\nchmod +x program   # 添加执行权限\n./program          # 运行\n```\n\n---\n\n## 本章小结\n\n1. `g++ -o program source.cpp` 编译C++程序\n2. `-Wall`显示所有警告，`-g`包含调试信息\n3. 常见错误：缺分号、大小写、头文件路径\n4. `chmod +x`给程序加执行权限\n",
+    "difficulty": 1,
+    "order": 5,
+    "category_name": "基础知识与编程环境",
+    "category_slug": "basics"
+  },
+  {
+    "id": 6,
+    "title": "枚举法",
+    "slug": "enumeration",
+    "content": "# 枚举法\n\n## 本章简介\n枚举法（Brute Force）是最基础的算法思想，通过逐一列举所有可能的情况来找到答案。\n\n---\n\n## 1. 枚举法思想\n\n枚举报：把所有可能的情况逐一验证，不重不漏。\n\n**关键**：确定枚举的范围和条件。\n\n---\n\n## 2. 经典例题：找出所有水仙花数\n\n水仙花数：3位数，每位数字的立方和等于自身。\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    for (int i = 100; i <= 999; i++) {\n        int a = i / 100;       // 百位\n        int b = i / 10 % 10;   // 十位\n        int c = i % 10;        // 个位\n        if (a*a*a + b*b*b + c*c*c == i) {\n            cout << i << \" \";  // 153 370 371 407\n        }\n    }\n    return 0;\n}\n```\n\n---\n\n## 3. 枚举优化\n\n### 例题：判断素数（枚举到√n）\n\n```cpp\nbool isPrime(int n) {\n    if (n < 2) return false;\n    for (int i = 2; i * i <= n; i++) {  // 只枚举到√n\n        if (n % i == 0) return false;\n    }\n    return true;\n}\n```\n\n优化前：枚举到n（n次）  \n优化后：枚举到√n（约√n次）\n\n---\n\n## 本章小结\n\n1. 枚举法：确定范围，逐一验证\n2. 关键优化：缩小枚举范围，减少无效计算\n3. 判断素数只需枚举到√n\n4. 竞赛中能用枚举就不用复杂算法\n",
+    "difficulty": 1,
+    "order": 6,
+    "category_name": "基础知识与编程环境",
+    "category_slug": "basics"
+  },
+  {
+    "id": 7,
+    "title": "模拟法",
+    "slug": "simulation",
+    "content": "# 模拟法\n\n## 本章简介\n模拟法根据题目描述，用代码逐步模拟过程，是竞赛中常用的高效解题方法。\n\n---\n\n## 1. 模拟法思想\n\n**按照题目的描述，一步一步用代码翻译出来。**\n\n核心：读懂题目 → 翻译成代码 → 运行验证\n\n---\n\n## 2. 例题：计算日期第二天\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int y, m, d;\n    cin >> y >> m >> d;\n\n    int days[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};\n    if ((y % 4 == 0 && y % 100 != 0) || y % 400 == 0) days[2] = 29;\n\n    d++;\n    if (d > days[m]) {\n        d = 1;\n        m++;\n        if (m > 12) {\n            m = 1;\n            y++;\n        }\n    }\n\n    cout << y << \"-\" << m << \"-\" << d << endl;\n    return 0;\n}\n```\n\n---\n\n## 3. 例题：模拟纸牌洗牌\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int n; cin >> n;\n    int a[105] = {0}, b[105] = {0};\n\n    for (int i = 1; i <= n; i++) cin >> a[i];\n\n    int step; cin >> step;\n    while (step--) {\n        // 模拟洗牌：前一半和后一半交叉\n        int cnt = 1;\n        for (int i = 1; i <= n/2; i++) {\n            b[cnt++] = a[i];\n            b[cnt++] = a[i + n/2];\n        }\n        for (int i = 1; i <= n; i++) a[i] = b[i];\n    }\n\n    for (int i = 1; i <= n; i++) cout << a[i] << \" \";\n    return 0;\n}\n```\n\n---\n\n## 本章小结\n\n1. 模拟法：把题目描述翻译成代码，逐步执行\n2. 关键是读懂题意，不要自己想当然\n3. 注意边界条件：日期进位、数组越界等\n4. 模拟法是CSP-J第一题最常见的题型\n",
+    "difficulty": 1,
+    "order": 7,
+    "category_name": "基础知识与编程环境",
+    "category_slug": "basics"
+  },
+  {
+    "id": 8,
+    "title": "变量、数据类型与常量",
+    "slug": "variables",
+    "content": "# 变量、数据类型与常量\n\n## 本章简介\n介绍C++中变量的声明与使用、基本数据类型、以及常量的概念。\n\n---\n\n## 1. 变量\n\n变量是内存中的一块存储空间，用来保存数据。\n\n```cpp\nint age = 15;        // 整数变量\ndouble score = 92.5; // 小数变量\nchar grade = 'A';    // 字符变量\nbool passed = true;  // 布尔变量\n```\n\n**命名规则**：\n- 由字母、数字、下划线组成\n- 不能以数字开头\n- 区分大小写\n\n---\n\n## 2. 基本数据类型\n\n### 整型\n\n| 类型 | 大小 | 范围 |\n|------|------|------|\n| `int` | 4字节 | ±21亿 |\n| `long long` | 8字节 | ±9×10¹⁸ |\n\n```cpp\nint a = 100000;\nlong long b = 1e12;\n```\n\n### 浮点型\n\n```cpp\nfloat f = 3.14f;      // 单精度\ndouble d = 3.14159;   // 双精度，更常用\n```\n\n### 字符型与布尔型\n\n```cpp\nchar c = 'A';    // 单引号\nbool ok = true;  // true/false\n```\n\n---\n\n## 3. 常量\n\n```cpp\nconst int WEEK = 7;       // const常量（推荐）\n#define PI 3.14159        // 宏定义（不推荐）\n```\n\n---\n\n## 4. 基本运算\n\n```cpp\nint a = 10, b = 3;\n\ncout << a + b << endl;   // 13 加\ncout << a - b << endl;   // 7  减\ncout << a * b << endl;   // 30 乘\ncout << a / b << endl;   // 3  整数除法\ncout << a % b << endl;   // 1  取余\n\n// 关系运算\ncout << (a > b) << endl;  // 1(true)\n\n// 逻辑运算\ncout << (a > 5 && b < 5) << endl;  // 1\ncout << !(a == b) << endl;          // 1\n\n// 三目运算\nint max = (a > b) ? a : b;  // 10\n```\n\n---\n\n## 本章小结\n\n1. 变量：先声明后使用，遵守命名规则\n2. 整型用`int/long long`，浮点用`double`，字符用`char`，布尔用`bool`\n3. `const`定义常量，比`#define`更安全\n4. 算术：`+ - * / %`；关系：`> < == !=`；逻辑：`&& || !`\n5. 三目运算符：`条件 ? 值1 : 值2`\n",
+    "difficulty": 2,
+    "order": 1,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 9,
+    "title": "输入输出与表达式",
+    "slug": "io-and-expressions",
+    "content": "# 输入输出与表达式\n\n## 本章简介\n学习C++的标准输入输出和表达式的使用。\n\n---\n\n## 1. cin输入\n\n```cpp\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int a, b;\n    cin >> a >> b;  // 输入两个整数，空格或回车分隔\n    cout << a + b << endl;\n    return 0;\n}\n```\n\n---\n\n## 2. 格式化输出\n\n```cpp\n#include <iomanip>\nusing namespace std;\n\ndouble pi = 3.1415926;\ncout << fixed << setprecision(2) << pi << endl;  // 3.14\ncout << hex << 255 << endl;   // ff（十六进制）\ncout << oct << 255 << endl;   // 377（八进制）\ncout << dec << 255 << endl;   // 255（十进制）\n```\n\n---\n\n## 3. 复合赋值运算\n\n```cpp\nint a = 10;\na += 5;   // a = a + 5 = 15\na -= 3;   // a = a - 3 = 12\na *= 2;   // a = a * 2 = 24\na /= 4;   // a = a / 4 = 6\na %= 4;   // a = a % 4 = 2\n```\n\n---\n\n## 4. 自增自减\n\n```cpp\nint a = 5, b;\n\nb = a++;  // b=5, a=6  先赋值后自增\nb = ++a;  // a=7, b=7  先自增后赋值\n\nb = a--;  // b=7, a=6  先赋值后自减\nb = --a;  // a=5, b=5  先自减后赋值\n```\n\n---\n\n## 本章小结\n\n1. `cin >>`输入，`cout <<`输出\n2. `setprecision(n)`控制浮点数小数位\n3. `hex/oct/dec`控制进制输出\n4. `a++` vs `++a`：前者先赋值后自增，后者相反\n",
+    "difficulty": 2,
+    "order": 2,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 10,
+    "title": "分支结构与switch语句",
+    "slug": "if-switch",
+    "content": "# 分支结构与switch语句\n\n## 本章简介\n学习使用`if`和`switch`实现程序的条件分支。\n\n---\n\n## 1. if分支\n\n```cpp\nint score;\ncin >> score;\n\nif (score >= 60) {\n    cout << \"及格\" << endl;\n} else {\n    cout << \"不及格\" << endl;\n}\n```\n\n### 多层条件\n\n```cpp\nif (score >= 90) cout << \"优秀\";\nelse if (score >= 80) cout << \"良好\";\nelse if (score >= 70) cout << \"中等\";\nelse if (score >= 60) cout << \"及格\";\nelse cout << \"不及格\";\n```\n\n---\n\n## 2. switch语句\n\n```cpp\nchar grade;\ncin >> grade;\n\nswitch (grade) {\n    case 'A':\n        cout << \"90~100分\";\n        break;\n    case 'B':\n        cout << \"80~89分\";\n        break;\n    case 'C':\n        cout << \"70~79分\";\n        break;\n    case 'D':\n        cout << \"60~69分\";\n        break;\n    default:\n        cout << \"成绩无效\";\n}\n```\n\n**注意**：\n- `case`后是常量值，不是表达式\n- `break`不能省略，否则会\"穿透\"\n- `default`处理所有未匹配的情况\n\n---\n\n## 本章小结\n\n1. `if-else`处理两个分支，`if-else if-else`处理多分支\n2. `switch`适合等值分支判断，用`break`防止穿透\n3. `&&`（与）、`||`（或）、`!`（非）用于复合条件\n",
+    "difficulty": 2,
+    "order": 3,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 11,
+    "title": "循环结构",
+    "slug": "loops",
+    "content": "# 循环结构\n\n## 本章简介\n循环是程序设计中最重要的结构之一。本章介绍`for`、`while`、`do-while`三种循环。\n\n---\n\n## 1. for循环\n\n```cpp\nfor (int i = 1; i <= 10; i++) {\n    cout << i << \" \";\n}\n// 输出：1 2 3 4 5 6 7 8 9 10\n```\n\n---\n\n## 2. while循环\n\n```cpp\nint sum = 0, i = 1;\nwhile (i <= 100) {\n    sum += i;\n    i++;\n}\ncout << sum << endl;  // 5050\n```\n\n---\n\n## 3. do-while循环\n\n先执行再判断，保证至少执行一次：\n\n```cpp\nint n;\ndo {\n    cin >> n;\n} while (n < 1 || n > 100);\n```\n\n---\n\n## 4. break和continue\n\n```cpp\nfor (int i = 1; i <= 10; i++) {\n    if (i == 5) break;      // 遇到5就停止\n    if (i % 2 == 0) continue; // 跳过偶数\n    cout << i << \" \";  // 输出：1 3\n}\n```\n\n---\n\n## 5. 循环嵌套：九九乘法表\n\n```cpp\nfor (int i = 1; i <= 9; i++) {\n    for (int j = 1; j <= i; j++) {\n        cout << j << \"×\" << i << \"=\" << i*j << \"\\t\";\n    }\n    cout << endl;\n}\n```\n\n---\n\n## 本章小结\n\n1. `for`适合已知循环次数，`while`适合条件驱动\n2. `do-while`先执行再判断，至少执行一次\n3. `break`跳出整个循环，`continue`跳过本次\n",
+    "difficulty": 2,
+    "order": 4,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 12,
+    "title": "do-while与break、continue",
+    "slug": "loop-control",
+    "content": "# do-while与break、continue\n\n## 本章简介\n详细介绍do-while循环，以及break和continue的控制流程。\n\n---\n\n## 1. do-while：先执行后判断\n\n与while的区别：循环体至少执行一次。\n\n```cpp\nint choice;\ndo {\n    cout << \"1. 开始游戏\" << endl;\n    cout << \"2. 退出\" << endl;\n    cin >> choice;\n} while (choice != 1 && choice != 2);\n// 用户输入1或2才退出循环\n```\n\n---\n\n## 2. break：跳出循环\n\n```cpp\n// 在数组中找第一个大于100的数\nfor (int i = 0; i < n; i++) {\n    if (a[i] > 100) {\n        cout << \"找到了：\" << i << endl;\n        break;  // 找到后停止搜索\n    }\n}\n```\n\n---\n\n## 3. continue：跳过本次\n\n```cpp\n// 打印1~100中所有不能被3整除的数\nfor (int i = 1; i <= 100; i++) {\n    if (i % 3 == 0) continue;  // 跳过能被3整除的\n    cout << i << \" \";\n}\n```\n\n---\n\n## 4. 死循环与退出\n\n```cpp\n// 方式1：while(true) + break\nwhile (true) {\n    int x; cin >> x;\n    if (x == 0) break;\n    cout << x * 2 << endl;\n}\n\n// 方式2：for(;;) + break\nfor (;;) {\n    int x; cin >> x;\n    if (x == 0) break;\n    cout << x * 2 << endl;\n}\n```\n\n---\n\n## 本章小结\n\n1. `break`：立即跳出整个循环\n2. `continue`：跳过本次循环，继续下一次\n3. `do-while`：先执行后判断，最少执行一次\n4. 死循环用`while(true)`或`for(;;)`，配合`break`退出\n",
+    "difficulty": 2,
+    "order": 5,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 13,
+    "title": "多层循环与穷举优化",
+    "slug": "nested-loops",
+    "content": "# 多层循环与穷举优化\n\n## 本章简介\n介绍多层循环的应用以及如何通过数学分析减少穷举量。\n\n---\n\n## 1. 多层循环\n\n```cpp\n// 打印所有三位数中的完全平方数\nfor (int i = 1; i <= 9; i++) {\n    for (int j = 0; j <= 9; j++) {\n        for (int k = 0; k <= 9; k++) {\n            int n = i*100 + j*10 + k;\n            int m = sqrt(n);\n            if (m*m == n) cout << n << \" \";\n        }\n    }\n}\n```\n\n---\n\n## 2. 优化穷举\n\n### 例题：找出所有各位数字之和为15的三位数\n\n**不优化**：枚举所有900个三位数。  \n**优化**：利用各位数字之和=15，减少内层范围。\n\n```cpp\nfor (int i = 1; i <= 9; i++) {           // 百位1~9\n    for (int j = 0; j <= 9; j++) {       // 十位0~9\n        int k = 15 - i - j;              // 直接算个位\n        if (k >= 0 && k <= 9) {\n            cout << i*100 + j*10 + k << \" \";\n        }\n    }\n}\n```\n\n---\n\n## 本章小结\n\n1. 多层循环嵌套，外层控制位数/规模\n2. 优化思路：用数学关系减少内层循环范围\n3. 减少无效计算，提升效率\n",
+    "difficulty": 3,
+    "order": 6,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 14,
+    "title": "数组与一维数组",
+    "slug": "array-1d",
+    "content": "# 数组与一维数组\n\n## 本章简介\n介绍一维数组的基本使用，包括声明、初始化、遍历和常见操作。\n\n---\n\n## 1. 声明与初始化\n\n```cpp\nint a[10];               // 声明10个整数\nint b[5] = {1, 2, 3, 4, 5};     // 完全初始化\nint c[5] = {1, 2};              // 部分初始化，未填的为0\nint d[] = {10, 20, 30};         // 自动确定大小（3个元素）\n```\n\n---\n\n## 2. 遍历与基本操作\n\n```cpp\nint score[5] = {85, 92, 78, 96, 88};\n\n// 遍历\nfor (int i = 0; i < 5; i++) {\n    cout << score[i] << \" \";\n}\n\n// 求最大值\nint max = score[0];\nfor (int i = 1; i < 5; i++) {\n    if (score[i] > max) max = score[i];\n}\ncout << \"最大：\" << max << endl;\n\n// 数组长度\nint len = sizeof(score) / sizeof(score[0]);  // 5\n```\n\n---\n\n## 本章小结\n\n1. 数组下标从0开始\n2. `sizeof(a)/sizeof(a[0])`计算数组长度\n3. 数组适合批量存储和批量处理\n",
+    "difficulty": 2,
+    "order": 7,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 15,
+    "title": "二维数组与多维数组",
+    "slug": "array-2d",
+    "content": "# 二维数组与多维数组\n\n## 本章简介\n介绍二维数组的声明、初始化和遍历，以及基本应用。\n\n---\n\n## 1. 声明与初始化\n\n```cpp\nint a[2][3] = {\n    {1, 2, 3},\n    {4, 5, 6}\n};\n\n// 部分初始化\nint b[3][4] = {{1}, {0, 2}, {0, 0, 3}};\n```\n\n---\n\n## 2. 遍历\n\n```cpp\nfor (int i = 0; i < 2; i++) {\n    for (int j = 0; j < 3; j++) {\n        cout << a[i][j] << \" \";\n    }\n    cout << endl;\n}\n```\n\n---\n\n## 3. 应用：矩阵运算\n\n```cpp\n// 矩阵转置\nint n = 3;\nint a[3][3] = {{1,2,3},{4,5,6},{7,8,9}};\n\nfor (int i = 0; i < n; i++) {\n    for (int j = i+1; j < n; j++) {\n        swap(a[i][j], a[j][i]);\n    }\n}\n```\n\n---\n\n## 4. 杨辉三角（二维数组应用）\n\n```cpp\nint n = 10;\nint a[11][11] = {0};\n\nfor (int i = 1; i <= n; i++) {\n    a[i][1] = a[i][i] = 1;\n    for (int j = 2; j < i; j++) {\n        a[i][j] = a[i-1][j-1] + a[i-1][j];\n    }\n}\n```\n\n---\n\n## 本章小结\n\n1. 二维数组：`类型 数组名[行数][列数]`\n2. 双重循环遍历，行列分别处理\n3. 可用于矩阵运算、表格数据处理\n",
+    "difficulty": 3,
+    "order": 8,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 16,
+    "title": "字符数组与string类",
+    "slug": "string",
+    "content": "# 字符数组与string类\n\n## 本章简介\n介绍字符数组和string类的字符串处理方法。\n\n---\n\n## 1. 字符数组\n\n```cpp\nchar s1[] = {'H', 'e', 'l', 'l', 'o', '\\0'};  // 加\\0表示字符串结束\nchar s2[] = \"Hello\";  // 更简洁的写法\n\ncout << s2 << endl;  // 输出Hello\n\n// 字符串长度\nint len = 0;\nwhile (s2[len] != '\\0') len++;\ncout << len << endl;  // 5\n```\n\n---\n\n## 2. string类（推荐）\n\n```cpp\n#include <string>\nusing namespace std;\n\nstring s = \"Hello\";\n\n// 长度\ncout << s.length() << endl;  // 5\n\n// 拼接\ns += \" World\";\ncout << s << endl;  // Hello World\n\n// 字符访问\ncout << s[0] << endl;  // H\n\n// 子串\ncout << s.substr(0, 5) << endl;  // Hello\n\n// 查找\nint pos = s.find(\"World\");  // 6\n```\n\n---\n\n## 本章小结\n\n1. 字符数组用`\\0`结尾，string类更安全易用\n2. string常用：`length`、`+`拼接、`substr`、`find`\n3. 竞赛中推荐使用string类处理字符串\n",
+    "difficulty": 2,
+    "order": 9,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 17,
+    "title": "函数定义与调用",
+    "slug": "function-basics",
+    "content": "# 函数定义与调用\n\n## 本章简介\n学习函数的定义、调用和参数传递。\n\n---\n\n## 1. 函数基础\n\n### 定义与调用\n\n```cpp\n// 求最大值\nint maxValue(int a, int b) {\n    if (a > b) return a;\n    return b;\n}\n\nint main() {\n    cout << maxValue(3, 7) << endl;  // 7\n    return 0;\n}\n```\n\n---\n\n## 2. 参数传递：值传递\n\n```cpp\nvoid doubleIt(int x) {\n    x = x * 2;  // 只改变副本\n}\n\nint main() {\n    int a = 5;\n    doubleIt(a);\n    cout << a << endl;  // 仍然是5，值传递不改变原变量\n    return 0;\n}\n```\n\n---\n\n## 本章小结\n\n1. 函数：`返回类型 函数名(参数) { 函数体; return值; }`\n2. 值传递：函数内修改不影响实参\n3. 递归：函数调用自身，必须有终止条件\n",
+    "difficulty": 2,
+    "order": 10,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 18,
+    "title": "函数参数传递：传值与传引用",
+    "slug": "function-params",
+    "content": "# 函数参数传递：传值与传引用\n\n## 本章简介\n详细讲解值传递、指针传递和引用传递的区别与应用场景。\n\n---\n\n## 1. 值传递（pass by value）\n\n```cpp\nvoid swap(int a, int b) {\n    int t = a; a = b; b = t;  // 只交换副本，原值不变\n}\n```\n\n---\n\n## 2. 指针传递（pass by pointer）\n\n```cpp\nvoid swap(int* a, int* b) {\n    int t = *a;\n    *a = *b;\n    *b = t;\n}\n\nint main() {\n    int x = 3, y = 5;\n    swap(&x, &y);  // 传入地址\n    cout << x << \" \" << y << endl;  // 5 3\n    return 0;\n}\n```\n\n---\n\n## 3. 引用传递（pass by reference）\n\n```cpp\nvoid swap(int& a, int& b) {\n    int t = a;\n    a = b;\n    b = t;\n}\n\nint main() {\n    int x = 3, y = 5;\n    swap(x, y);  // 直接传变量名\n    cout << x << \" \" << y << endl;  // 5 3\n    return 0;\n}\n```\n\n---\n\n## 4. 对比总结\n\n| 传递方式 | 语法 | 能修改实参 | 推荐度 |\n|---------|------|-----------|--------|\n| 值传递 | `void f(int a)` | ❌ | 一般用于只读 |\n| 指针传递 | `void f(int* a)` | ✅ | C风格 |\n| 引用传递 | `void f(int& a)` | ✅ | **C++推荐** |\n\n---\n\n## 本章小结\n\n1. 值传递：传副本，原变量不变\n2. 指针传递：传地址，通过`*p`修改\n3. **引用传递**：最简洁，推荐使用\n4. 引用可以理解为变量的别名\n",
+    "difficulty": 3,
+    "order": 11,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 19,
+    "title": "变量作用域与递归函数",
+    "slug": "scope-and-recursion",
+    "content": "# 变量作用域与递归函数\n\n## 本章简介\n学习变量的作用域规则和递归函数的设计方法。\n\n---\n\n## 1. 作用域\n\n```cpp\nint x = 10;  // 全局变量\n\nint main() {\n    int x = 20;  // 局部变量，遮蔽全局变量\n    cout << x << endl;      // 20（局部优先）\n    cout << ::x << endl;    // 10（用::访问全局）\n    return 0;\n}\n```\n\n---\n\n## 2. 递归函数\n\n函数调用自身叫递归，必须有终止条件：\n\n```cpp\n// 阶乘\nint factorial(int n) {\n    if (n <= 1) return 1;\n    return n * factorial(n - 1);\n}\n\n// 斐波那契\nint fib(int n) {\n    if (n <= 2) return 1;\n    return fib(n - 1) + fib(n - 2);\n}\n```\n\n---\n\n## 本章小结\n\n1. 全局变量整个文件有效，局部变量只在函数内有效\n2. 递归：函数调用自身，必须有终止条件，否则栈溢出\n3. 递归深度过大时考虑用循环或增大栈空间\n",
+    "difficulty": 2,
+    "order": 12,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 20,
+    "title": "结构体与联合体",
+    "slug": "struct-union",
+    "content": "# 结构体与联合体\n\n## 本章简介\n介绍结构体和联合体的定义与使用。\n\n---\n\n## 1. 结构体基础\n\n```cpp\nstruct Student {\n    string name;\n    int age;\n    int score;\n};\n\nint main() {\n    Student s1;\n    s1.name = \"张三\";\n    s1.age = 14;\n    s1.score = 92;\n\n    Student s2 = {\"李四\", 15, 88};\n    cout << s1.name << \": \" << s1.score << endl;\n    return 0;\n}\n```\n\n---\n\n## 2. 结构体数组\n\n```cpp\nstruct Score {\n    string name;\n    int chinese;\n    int math;\n};\n\nScore scores[3] = {\n    {\"张三\", 90, 85},\n    {\"李四\", 88, 92},\n    {\"王五\", 95, 89}\n};\n```\n\n---\n\n## 3. 联合体\n\n联合体的所有成员**共享同一块内存**：\n\n```cpp\nunion Data {\n    int i;\n    double d;\n    char c;\n};\n\nint main() {\n    Data data;\n    data.i = 65;\n    cout << data.i << endl;   // 65\n    data.c = 'A';              // i的值也被覆盖了\n    return 0;\n}\n```\n\n---\n\n## 本章小结\n\n1. 结构体：自定义数据类型，封装多个不同类型字段\n2. 联合体：所有成员共享内存，同时只能用一个\n",
+    "difficulty": 3,
+    "order": 13,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 21,
+    "title": "指针基础",
+    "slug": "pointers-basics",
+    "content": "# 指针基础\n\n## 本章简介\n指针是C/C++的核心概念。本章介绍指针的定义、使用和常见应用。\n\n---\n\n## 1. 指针的定义与使用\n\n```cpp\nint a = 10;\nint* p = &a;  // p存储a的地址\n\ncout << p << endl;   // a的地址\ncout << *p << endl;  // 10（解引用，取值）\n```\n\n**&取地址，*解引用**——两者互为逆运算。\n\n---\n\n## 2. 指针与数组\n\n```cpp\nint a[] = {10, 20, 30, 40};\nint* p = a;  // 数组名就是首元素地址\n\ncout << *(p + 0) << endl;  // 10\ncout << *(p + 1) << endl;  // 20\ncout << p[2] << endl;       // 30（p[2] == *(p+2)）\n```\n\n---\n\n## 3. 指针作为函数参数\n\n```cpp\nvoid swap(int* a, int* b) {\n    int t = *a;\n    *a = *b;\n    *b = t;\n}\n```\n\n---\n\n## 本章小结\n\n1. 指针：存储地址的变量，`int* p = &a;`\n2. `*p`读取地址中的值，`&a`获取变量地址\n3. 数组名是首元素地址，指针运算`p+i`偏移i个元素\n",
+    "difficulty": 4,
+    "order": 14,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 22,
+    "title": "指针与数组、字符串",
+    "slug": "pointer-array-string",
+    "content": "# 指针与数组、字符串\n\n## 本章简介\n深入讲解指针与数组、字符串的关系。\n\n---\n\n## 1. 指针算术\n\n```cpp\nint a[] = {10, 20, 30, 40, 50};\nint* p = a;  // 指向a[0]\n\np++;          // 指向a[1]，值20\np += 2;       // 指向a[3]，值40\ncout << *p << endl;  // 40\n```\n\n---\n\n## 2. 字符指针\n\n```cpp\nconst char* s = \"Hello\";  // 字符串常量\n\ncout << s << endl;  // 输出Hello\ncout << s[1] << endl;  // e\n\n// 注意：字符串常量不能修改\n// s[0] = 'h';  // 错误！\n```\n\n---\n\n## 3. 指针与const\n\n```cpp\nint a = 10;\nconst int* p = &a;  // 不能通过p修改a的值\n// (*p) = 20;  // 错误！但可以直接修改a\n```\n\n---\n\n## 本章小结\n\n1. 指针算术：`p+n`、`p-n`、`p++`、`p--`\n2. 字符指针指向字符串常量，不可修改\n3. `const int* p`表示指针指向的内容不可修改\n",
+    "difficulty": 4,
+    "order": 15,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 23,
+    "title": "结构体指针与函数指针",
+    "slug": "pointer-to-struct",
+    "content": "# 结构体指针与函数指针\n\n## 本章简介\n介绍结构体指针的使用和函数指针的概念。\n\n---\n\n## 1. 结构体指针\n\n```cpp\nstruct Student {\n    string name;\n    int score;\n};\n\nStudent stu = {\"张三\", 90};\nStudent* ps = &stu;\n\ncout << ps->name << endl;     // 张三（用->访问成员）\ncout << (*ps).score << endl;  // 90（等价写法）\n```\n\n---\n\n## 2. 指针数组\n\n```cpp\nint* arr[3];  // 3个int指针组成的数组\nint a = 1, b = 2, c = 3;\narr[0] = &a; arr[1] = &b; arr[2] = &c;\ncout << *arr[0] << endl;  // 1\n```\n\n---\n\n## 本章小结\n\n1. 结构体指针用`->`访问成员，等价于`(*p).member`\n2. 指针数组：每个元素都是指针\n3. 指针使数据和函数都可以被动态操作\n",
+    "difficulty": 4,
+    "order": 16,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 24,
+    "title": "引用",
+    "slug": "reference",
+    "content": "# 引用\n\n## 本章简介\n引用是C++的别名机制，是比指针更安全的传参方式。\n\n---\n\n## 1. 引用的基本使用\n\n```cpp\nint a = 10;\nint& r = a;  // r是a的引用（别名）\n\nr = 20;  // 修改r就是修改a\ncout << a << endl;  // 20\n```\n\n---\n\n## 2. 引用作为函数参数\n\n```cpp\nvoid swap(int& a, int& b) {\n    int t = a;\n    a = b;\n    b = t;\n}\n\nint main() {\n    int x = 3, y = 5;\n    swap(x, y);\n    cout << x << \" \" << y << endl;  // 5 3\n    return 0;\n}\n```\n\n---\n\n## 3. 引用vs指针\n\n| 特征 | 引用 | 指针 |\n|------|------|------|\n| 语法 | `int& r = a;` | `int* p = &a;` |\n| 空值 | 不存在（必须绑定对象） | 可以是nullptr |\n| 修改 | 直接修改 | 需要`*p`解引用 |\n| 安全性 | 更高 | 需注意空指针 |\n\n**竞赛中推荐用引用代替指针**，语法更简洁。\n\n---\n\n## 本章小结\n\n1. 引用是变量的别名，`int& r = a;`\n2. 修改引用即修改原变量\n3. 引用参数可以替代指针参数，更安全简洁\n4. 引用必须在定义时初始化，不能重新绑定\n",
+    "difficulty": 5,
+    "order": 17,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 25,
+    "title": "文件操作与重定向",
+    "slug": "file-operations",
+    "content": "# 文件操作与重定向\n\n## 本章简介\n学习C++的文件读写操作，以及输入输出重定向。\n\n---\n\n## 1. 文件读写\n\n```cpp\n#include <fstream>\nusing namespace std;\n\nint main() {\n    // 写入文件\n    ofstream fout(\"output.txt\");\n    fout << \"Hello, File!\" << endl;\n    fout.close();\n\n    // 读取文件\n    ifstream fin(\"input.txt\");\n    string s;\n    int n;\n    fin >> s >> n;\n    cout << s << \" \" << n << endl;\n    fin.close();\n\n    return 0;\n}\n```\n\n---\n\n## 2. 重定向（竞赛常用）\n\n```cpp\n// freopen重定向\nfreopen(\"input.txt\", \"r\", stdin);   // 从文件读\nfreopen(\"output.txt\", \"w\", stdout); // 写到文件\n\n// 恢复标准输入输出\nfreopen(\"/dev/tty\", \"r\", stdin);\nfreopen(\"/dev/tty\", \"w\", stdout);\n```\n\n---\n\n## 本章小结\n\n1. `ifstream`读文件，`ofstream`写文件\n2. `freopen`实现输入输出重定向，竞赛中常用\n3. 文件路径可以是相对路径或绝对路径\n",
+    "difficulty": 2,
+    "order": 18,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 26,
+    "title": "STL：min、max、swap、sort",
+    "slug": "stl-algorithm",
+    "content": "# STL：min、max、swap、sort\n\n## 本章简介\nSTL是C++标准库的重要组成部分。本章介绍四个最常用的算法函数。\n\n---\n\n## 1. min、max、swap\n\n```cpp\n#include <algorithm>\ncout << min(3, 7) << endl;           // 3\ncout << max(3, 7) << endl;           // 7\nswap(3, 7);                          // 交换\n\n// 三个数的最值\ncout << min({3, 1, 7}) << endl;     // 1（c++11初始化列表）\n```\n\n---\n\n## 2. sort排序\n\n```cpp\n#include <algorithm>\n#include <vector>\nusing namespace std;\n\nvector<int> v = {3, 1, 4, 1, 5, 9, 2, 6};\n\n// 升序排序\nsort(v.begin(), v.end());  // {1,1,2,3,4,5,6,9}\n\n// 降序排序\nsort(v.begin(), v.end(), greater<int>());\n\n// 自定义比较：按绝对值大小排序\nvector<int> v2 = {-3, 1, -4, 1, 5, -9};\nsort(v2.begin(), v2.end(), [](int a, int b) {\n    return abs(a) < abs(b);\n});\n```\n\n---\n\n## 本章小结\n\n1. `min(a,b)`返回较小值，`max(a,b)`返回较大值\n2. `swap(a,b)`交换两个变量的值\n3. `sort(begin, end)`默认升序，`greater<int>()`降序\n4. `sort`是竞赛中最高效的排序，O(n log n)\n",
+    "difficulty": 3,
+    "order": 19,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 27,
+    "title": "STL：stack、queue、list、vector",
+    "slug": "stl-container",
+    "content": "# STL：stack、queue、list、vector\n\n## 本章简介\n详细介绍四种STL容器的基本操作和应用场景。\n\n---\n\n## 1. vector向量（最常用）\n\n```cpp\n#include <vector>\nusing namespace std;\n\nvector<int> v = {3, 1, 4};\n\nv.push_back(5);     // 尾部添加\nv.insert(v.begin()+1, 7);  // 在第2个位置插入7\nsort(v.begin(), v.end());  // 排序\n\nfor (int x : v) cout << x << \" \";  // 1 3 4 5 7\n```\n\n---\n\n## 2. stack栈（LIFO）\n\n```cpp\n#include <stack>\nstack<int> s;\ns.push(1); s.push(2); s.push(3);\ns.top();   // 3（栈顶）\ns.pop();  // 出栈\n```\n\n---\n\n## 3. queue队列（FIFO）\n\n```cpp\n#include <queue>\nqueue<int> q;\nq.push(1); q.push(2); q.push(3);\nq.front();  // 1（队首）\nq.pop();    // 出队\n```\n\n---\n\n## 4. list双向链表\n\n```cpp\n#include <list>\nlist<int> lst = {1, 2, 3, 4, 5};\n\nlst.push_front(0);      // 头部插入\nlst.push_back(6);       // 尾部插入\nlst.remove(3);          // 删除值为3的节点\nlst.reverse();          // 反转链表\n```\n\n---\n\n## 本章小结\n\n1. `vector`：动态数组，支持随机访问，**首选**\n2. `stack`：LIFO，括号匹配、表达式求值\n3. `queue`：FIFO，BFS、按序处理\n4. `list`：双向链表，插入删除O(1)，不支持随机访问\n",
+    "difficulty": 4,
+    "order": 20,
+    "category_name": "C++程序设计",
+    "category_slug": "cpp"
+  },
+  {
+    "id": 28,
+    "title": "单链表",
+    "slug": "linked-list",
+    "content": "# 单链表\n\n## 本章简介\n链表是线性数据结构，通过指针链接节点。本章介绍单链表的实现。\n\n---\n\n## 1. 节点定义\n\n```cpp\nstruct Node {\n    int data;\n    Node* next;\n    Node(int x) : data(x), next(nullptr) {}\n};\n```\n\n---\n\n## 2. 头插法（插入到头部）\n\n```cpp\nvoid insertHead(Node*& head, int val) {\n    Node* newNode = new Node(val);\n    newNode->next = head;\n    head = newNode;\n}\n```\n\n---\n\n## 3. 尾插法（插入到尾部）\n\n```cpp\nvoid insertTail(Node*& head, int val) {\n    Node* newNode = new Node(val);\n    if (!head) { head = newNode; return; }\n    Node* p = head;\n    while (p->next) p = p->next;\n    p->next = newNode;\n}\n```\n\n---\n\n## 4. 删除节点\n\n```cpp\nvoid deleteNode(Node*& head, int val) {\n    if (!head) return;\n    if (head->data == val) {\n        Node* tmp = head;\n        head = head->next;\n        delete tmp;\n        return;\n    }\n    Node* p = head;\n    while (p->next && p->next->data != val) p = p->next;\n    if (p->next) {\n        Node* tmp = p->next;\n        p->next = tmp->next;\n        delete tmp;\n    }\n}\n```\n\n---\n\n## 5. 遍历链表\n\n```cpp\nvoid printList(Node* head) {\n    for (Node* p = head; p; p = p->next) {\n        cout << p->data;\n        if (p->next) cout << \" -> \";\n    }\n    cout << endl;\n}\n```\n\n---\n\n## 本章小结\n\n1. 链表节点 = 数据 + 指针\n2. 头插O(1)，尾插O(n)，按值删除O(n)\n3. 与数组对比：插入快但访问慢\n4. 用`new`分配内存后要`delete`释放\n",
+    "difficulty": 3,
+    "order": 1,
+    "category_name": "数据结构",
+    "category_slug": "data-structure"
+  },
+  {
+    "id": 29,
+    "title": "双向链表与循环链表",
+    "slug": "dlist-cyclelist",
+    "content": "# 双向链表与循环链表\n\n## 本章简介\n介绍双向链表和循环链表的结构与基本操作。\n\n---\n\n## 1. 双向链表节点\n\n```cpp\nstruct DNode {\n    int data;\n    DNode* prev;\n    DNode* next;\n    DNode(int x) : data(x), prev(nullptr), next(nullptr) {}\n};\n```\n\n---\n\n## 2. 循环链表\n\n首尾相接的链表：\n\n```cpp\nstruct CNode {\n    int data;\n    CNode* next;\n};\n\n// 建立循环链表：1->2->3->1\nCNode* create(int a[], int n) {\n    CNode* head = new CNode(a[0]);\n    CNode* p = head;\n    for (int i = 1; i < n; i++) {\n        p->next = new CNode(a[i]);\n        p = p->next;\n    }\n    p->next = head;  // 尾指向头\n    return head;\n}\n```\n\n---\n\n## 3. 约瑟夫问题（循环链表经典应用）\n\n```cpp\nint josephus(int n, int m) {\n    list<int> L;\n    for (int i = 1; i <= n; i++) L.push_back(i);\n    auto it = L.begin();\n    while (L.size() > 1) {\n        for (int i = 1; i < m; i++) {\n            it++;\n            if (it == L.end()) it = L.begin();\n        }\n        it = L.erase(it);  // 删除当前\n        if (it == L.end()) it = L.begin();\n    }\n    return L.front();\n}\n```\n\n---\n\n## 本章小结\n\n1. 双向链表：每个节点有prev和next，删除更方便\n2. 循环链表：尾节点的next指向头，适合环状问题\n3. 约瑟夫问题是循环链表的经典应用\n",
+    "difficulty": 3,
+    "order": 2,
+    "category_name": "数据结构",
+    "category_slug": "data-structure"
+  },
+  {
+    "id": 30,
+    "title": "栈",
+    "slug": "stack",
+    "content": "# 栈\n\n## 本章简介\n栈是\"后进先出\"的数据结构，是算法竞赛中的重要工具。\n\n---\n\n## 1. 栈的基本操作\n\n```cpp\n#include <stack>\nusing namespace std;\n\nstack<int> s;\n\ns.push(1);   // 入栈：{1}\ns.push(2);   // 入栈：{1,2}\ns.push(3);   // 入栈：{1,2,3}\n\ncout << s.top() << endl;   // 看栈顶：3\ns.pop();                    // 出栈：{1,2}\n\ncout << s.size() << endl;   // 2\ncout << s.empty() << endl;   // false\n```\n\n---\n\n## 2. 应用：括号匹配\n\n```cpp\n#include <stack>\n#include <string>\nusing namespace std;\n\nbool isValid(string s) {\n    stack<char> st;\n    for (char c : s) {\n        if (c == '(' || c == '[' || c == '{')\n            st.push(c);\n        else {\n            if (st.empty()) return false;\n            char top = st.top();\n            if ((c==')'&&top!='(') || (c==']'&&top!='[') || (c=='}'&&top!='{'))\n                return false;\n            st.pop();\n        }\n    }\n    return st.empty();\n}\n```\n\n---\n\n## 本章小结\n\n1. 栈（LIFO）：`push`入栈，`pop`出栈，`top`看栈顶\n2. 适合：括号匹配、表达式求值、函数调用栈\n3. 括号匹配：左括号入栈，右括号匹配弹出\n",
+    "difficulty": 3,
+    "order": 3,
+    "category_name": "数据结构",
+    "category_slug": "data-structure"
+  },
+  {
+    "id": 31,
+    "title": "队列",
+    "slug": "queue",
+    "content": "# 队列\n\n## 本章简介\n队列是\"先进先出\"的数据结构，是BFS和调度算法的核心。\n\n---\n\n## 1. 队列基本操作\n\n```cpp\n#include <queue>\nusing namespace std;\n\nqueue<int> q;\n\nq.push(1);   // 入队：{1}\nq.push(2);   // 入队：{1,2}\nq.push(3);   // 入队：{1,2,3}\n\ncout << q.front() << endl;   // 看队首：1\ncout << q.back() << endl;    // 看队尾：3\nq.pop();                      // 出队：{2,3}\n```\n\n---\n\n## 2. 应用：BFS广度优先搜索\n\n```cpp\nqueue<int> q;\nq.push(start);\nvis[start] = true;\n\nwhile (!q.empty()) {\n    int cur = q.front();\n    q.pop();\n    for (每个邻居) {\n        if (!vis[邻居]) {\n            q.push(邻居);\n            vis[邻居] = true;\n        }\n    }\n}\n```\n\n---\n\n## 本章小结\n\n1. 队列（FIFO）：`push`入队，`pop`出队，`front`看队首\n2. 适合：BFS、层序遍历、任务调度\n3. BFS用队列，DFS用栈或递归\n",
+    "difficulty": 3,
+    "order": 4,
+    "category_name": "数据结构",
+    "category_slug": "data-structure"
+  },
+  {
+    "id": 32,
+    "title": "树与二叉树基础",
+    "slug": "tree-basics",
+    "content": "# 树与二叉树基础\n\n## 本章简介\n树是一种层次结构，二叉树是最常用的树形结构。\n\n---\n\n## 1. 树的基本概念\n\n- **节点**：树中的每个元素\n- **根节点**：树的顶端，没有父节点\n- **叶子节点**：没有子节点的节点\n- **深度**：从根到该节点的路径长度\n- **高度**：从该节点到最深叶子节点的距离\n\n---\n\n## 2. 二叉树\n\n每个节点最多有两个子节点（左孩子、右孩子）。\n\n### 节点定义\n\n```cpp\nstruct TreeNode {\n    int val;\n    TreeNode* left;\n    TreeNode* right;\n    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}\n};\n```\n\n---\n\n## 3. 二叉树的基本性质\n\n1. 第i层最多有`2^(i-1)`个节点（根节点为第1层）\n2. 深度为k的二叉树最多有`2^k - 1`个节点\n3. 叶节点数 = 度为2的节点数 + 1（n₀ = n₂ + 1）\n\n---\n\n## 本章小结\n\n1. 树是层次结构，二叉树每个节点最多两个子节点\n2. 二叉树第i层最多2^(i-1)个节点\n3. 完全二叉树：除最后一层外每层满节点，最后一层左对齐\n",
+    "difficulty": 3,
+    "order": 5,
+    "category_name": "数据结构",
+    "category_slug": "data-structure"
+  },
+  {
+    "id": 33,
+    "title": "二叉树的表示与存储",
+    "slug": "tree-storage",
+    "content": "# 二叉树的表示与存储\n\n## 本章简介\n介绍二叉树的链式存储结构和数组表示方法。\n\n---\n\n## 1. 链式存储（最常用）\n\n```cpp\nstruct TreeNode {\n    int val;\n    TreeNode* left;\n    TreeNode* right;\n    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}\n};\n```\n\n---\n\n## 2. 完全二叉树的数组表示\n\n完全二叉树可以用数组高效存储：\n\n| 父节点 | 左孩子 | 右孩子 |\n|--------|--------|--------|\n| `i` | `2i` | `2i+1` |\n\n```cpp\nint tree[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};  // 0号位不用\n\nint parent(int i) { return i/2; }\nint leftChild(int i) { return 2*i; }\nint rightChild(int i) { return 2*i+1; }\n\n// 判断是否为叶子节点\nbool isLeaf(int i, int n) {\n    return leftChild(i) > n;\n}\n```\n\n---\n\n## 本章小结\n\n1. 完全二叉树用数组存储：父节点i，左孩子2i，右孩子2i+1\n2. 数组存储更省内存，适合完全二叉树\n3. 链式存储适合任意二叉树\n",
+    "difficulty": 4,
+    "order": 6,
+    "category_name": "数据结构",
+    "category_slug": "data-structure"
+  },
+  {
+    "id": 34,
+    "title": "二叉树的遍历",
+    "slug": "tree-traversal",
+    "content": "# 二叉树的遍历\n\n## 本章简介\n介绍二叉树的四种遍历方式：前序、中序、后序和层序。\n\n---\n\n## 1. 前序遍历（根-左-右）\n\n```cpp\nvoid preOrder(TreeNode* root) {\n    if (!root) return;\n    cout << root->val << \" \";\n    preOrder(root->left);\n    preOrder(root->right);\n}\n```\n\n---\n\n## 2. 中序遍历（左-根-右）\n\n```cpp\nvoid inOrder(TreeNode* root) {\n    if (!root) return;\n    inOrder(root->left);\n    cout << root->val << \" \";\n    inOrder(root->right);\n}\n```\n\n**中序遍历BST是有序序列！**\n\n---\n\n## 3. 后序遍历（左-右-根）\n\n```cpp\nvoid postOrder(TreeNode* root) {\n    if (!root) return;\n    postOrder(root->left);\n    postOrder(root->right);\n    cout << root->val << \" \";\n}\n```\n\n---\n\n## 4. 层序遍历（队列）\n\n```cpp\n#include <queue>\nvoid levelOrder(TreeNode* root) {\n    if (!root) return;\n    queue<TreeNode*> q;\n    q.push(root);\n\n    while (!q.empty()) {\n        TreeNode* node = q.front();\n        q.pop();\n        cout << node->val << \" \";\n        if (node->left) q.push(node->left);\n        if (node->right) q.push(node->right);\n    }\n}\n```\n\n---\n\n## 本章小结\n\n1. 前序：根左右，中序：左根右，后序：左右根\n2. 递归实现简单，需注意终止条件\n3. 层序遍历用队列，保证按层次顺序\n4. **中序遍历BST是有序序列**\n",
+    "difficulty": 4,
+    "order": 7,
+    "category_name": "数据结构",
+    "category_slug": "data-structure"
+  },
+  {
+    "id": 35,
+    "title": "完全二叉树与堆",
+    "slug": "complete-binary-tree",
+    "content": "# 完全二叉树与堆\n\n## 本章简介\n介绍完全二叉树的性质和堆数据结构。\n\n---\n\n## 1. 完全二叉树性质\n\n- 除最后一层外，每层节点数都达到最大\n- 最后一层节点都集中在左边\n- 可用数组存储，节省空间\n\n---\n\n## 2. 堆（Heap）\n\n堆是一棵完全二叉树，分为最大堆和最小堆：\n\n| 类型 | 特点 |\n|------|------|\n| 最大堆 | 父节点 ≥ 子节点，根是最大值 |\n| 最小堆 | 父节点 ≤ 子节点，根是最小值 |\n\n---\n\n## 3. 堆的向下调整\n\n```cpp\n// 向下调整：从pos位置向下调整\nvoid heapifyDown(int heap[], int n, int pos) {\n    while (true) {\n        int largest = pos;\n        int left = 2*pos, right = 2*pos+1;\n        if (left <= n && heap[left] > heap[largest]) largest = left;\n        if (right <= n && heap[right] > heap[largest]) largest = right;\n        if (largest == pos) break;\n        swap(heap[pos], heap[largest]);\n        pos = largest;\n    }\n}\n```\n\n---\n\n## 4. 堆排序\n\n```cpp\nvoid heapSort(int a[], int n) {\n    // 建堆：从最后一个非叶子节点向上调整\n    for (int i = n/2; i >= 1; i--)\n        heapifyDown(a, n, i);\n\n    // 逐个取出堆顶\n    for (int i = n; i >= 2; i--) {\n        swap(a[1], a[i]);\n        heapifyDown(a, i-1, 1);\n    }\n}\n```\n\n---\n\n## 本章小结\n\n1. 完全二叉树：除最后一层外每层满节点，最后一层左对齐\n2. 最大堆：父节点≥子节点，根是最大值\n3. 堆排序：O(n log n)，建堆O(n)\n",
+    "difficulty": 4,
+    "order": 8,
+    "category_name": "数据结构",
+    "category_slug": "data-structure"
+  },
+  {
+    "id": 36,
+    "title": "哈夫曼树与哈夫曼编码",
+    "slug": "huffman",
+    "content": "# 哈夫曼树与哈夫曼编码\n\n## 本章简介\n哈夫曼树是带权路径长度最短的二叉树，哈夫曼编码是变长编码的基础。\n\n---\n\n## 1. 基本概念\n\n- **树的带权路径长度（WPL）**：所有叶子节点的权值×路径长度之和\n- **哈夫曼树**：WPL最小的二叉树\n\n---\n\n## 2. 构造哈夫曼树（贪心）\n\n每次合并权值最小的两棵树：\n\n```cpp\n#include <queue>\n#include <iostream>\nusing namespace std;\n\nint main() {\n    int a[] = {2, 3, 6, 7, 10, 13};\n    priority_queue<long long, vector<long long>, greater<long long>> pq;\n\n    for (int x : a) pq.push(x);\n\n    long long cost = 0;\n    while (pq.size() > 1) {\n        long long x = pq.top(); pq.pop();\n        long long y = pq.top(); pq.pop();\n        cost += x + y;\n        pq.push(x + y);\n    }\n\n    cout << cost << endl;  // 最小带权路径长度\n    return 0;\n}\n```\n\n---\n\n## 3. 哈夫曼编码\n\n高频字符用短码，低频字符用长码：\n\n| 字符 | 频率 | 编码 |\n|------|------|------|\n| A | 45 | 0 |\n| B | 13 | 101 |\n| C | 12 | 100 |\n| D | 16 | 111 |\n| E | 9 | 1101 |\n| F | 5 | 1100 |\n\n---\n\n## 本章小结\n\n1. 哈夫曼树：WPL最小的树，用最小堆构造\n2. 哈夫曼编码：前缀编码，高频字符短码\n3. 核心思想：贪心——每次合并最小的两棵树\n",
+    "difficulty": 4,
+    "order": 9,
+    "category_name": "数据结构",
+    "category_slug": "data-structure"
+  },
+  {
+    "id": 37,
+    "title": "二叉搜索树",
+    "slug": "bst",
+    "content": "# 二叉搜索树\n\n## 本章简介\n二叉搜索树（BST）是一种特殊二叉树，左子树所有节点 < 根 < 右子树所有节点。\n\n---\n\n## 1. BST定义\n\n左子树所有节点 < 根节点 < 右子树所有节点。\n\n**中序遍历BST得到有序序列！**\n\n---\n\n## 2. 查找\n\n```cpp\nTreeNode* searchBST(TreeNode* root, int target) {\n    if (!root || root->val == target) return root;\n    if (target < root->val)\n        return searchBST(root->left, target);\n    else\n        return searchBST(root->right, target);\n}\n```\n\n---\n\n## 3. 插入\n\n```cpp\nTreeNode* insertBST(TreeNode* root, int val) {\n    if (!root) return new TreeNode(val);\n    if (val < root->val)\n        root->left = insertBST(root->left, val);\n    else\n        root->right = insertBST(root->right, val);\n    return root;\n}\n```\n\n---\n\n## 4. 删除\n\n```cpp\nTreeNode* deleteBST(TreeNode* root, int val) {\n    if (!root) return nullptr;\n    if (val < root->val) root->left = deleteBST(root->left, val);\n    else if (val > root->val) root->right = deleteBST(root->right, val);\n    else {\n        if (!root->left) return root->right;\n        if (!root->right) return root->left;\n        TreeNode* minNode = root->right;\n        while (minNode->left) minNode = minNode->left;\n        root->val = minNode->val;\n        root->right = deleteBST(root->right, minNode->val);\n    }\n    return root;\n}\n```\n\n---\n\n## 本章小结\n\n1. BST：左<根<右，中序遍历得到有序序列\n2. 查找/插入/删除：O(log n)（平衡时），最坏O(n)（退化成链表）\n3. 退化成链表时效率低，需要平衡树（AVL/红黑树）\n",
+    "difficulty": 4,
+    "order": 10,
+    "category_name": "数据结构",
+    "category_slug": "data-structure"
+  },
+  {
+    "id": 38,
+    "title": "图的存储：邻接矩阵与邻接表",
+    "slug": "graph-storage",
+    "content": "# 图的存储：邻接矩阵与邻接表\n\n## 本章简介\n介绍两种基本的图存储方式及其适用场景。\n\n---\n\n## 1. 邻接矩阵\n\n适合稠密图（边多）。\n\n```cpp\nconst int MAXN = 100;\nint g[MAXN][MAXN] = {0};  // g[i][j]=1表示边(i,j)存在\n\nvoid addEdge(int u, int v) {\n    g[u][v] = g[v][u] = 1;  // 无向图\n}\n```\n\n**空间复杂度**：O(V²)，适合V较小（≤500）的情况。\n\n---\n\n## 2. 邻接表\n\n适合稀疏图（边少）。\n\n```cpp\n#include <vector>\nusing namespace std;\n\nvector<int> adj[MAXN];  // adj[i]存储i的所有邻居\n\nvoid addEdge(int u, int v) {\n    adj[u].push_back(v);\n    adj[v].push_back(u);  // 无向图\n}\n```\n\n**空间复杂度**：O(V+E)。\n\n---\n\n## 3. 对比与选择\n\n| 存储方式 | 空间 | 查询边 | 适用场景 |\n|----------|------|--------|----------|\n| 邻接矩阵 | O(V²) | O(1) | 稠密图（E≈V²） |\n| 邻接表 | O(V+E) | O(deg) | 稀疏图（E<<V²） |\n\n**竞赛中一般用邻接表**。\n\n---\n\n## 本章小结\n\n1. 邻接矩阵：二维数组，O(1)查边，但空间大\n2. 邻接表：vector数组，空间O(V+E)，竞赛常用\n3. 无向图：双向存边；有向图：单向存边\n",
+    "difficulty": 4,
+    "order": 11,
+    "category_name": "数据结构",
+    "category_slug": "data-structure"
+  },
+  {
+    "id": 39,
+    "title": "图的遍历：DFS与BFS",
+    "slug": "graph-traversal",
+    "content": "# 图的遍历：DFS与BFS\n\n## 本章简介\n介绍图的深度优先遍历和广度优先遍历。\n\n---\n\n## 1. 图的DFS\n\n```cpp\nbool vis[MAXN];\n\nvoid dfs(int u) {\n    vis[u] = true;\n    cout << u << \" \";\n    for (int v : adj[u]) {\n        if (!vis[v]) dfs(v);\n    }\n}\n```\n\n---\n\n## 2. 图的BFS\n\n```cpp\n#include <queue>\nvoid bfs(int start) {\n    queue<int> q;\n    q.push(start);\n    vis[start] = true;\n\n    while (!q.empty()) {\n        int u = q.front();\n        q.pop();\n        cout << u << \" \";\n        for (int v : adj[u]) {\n            if (!vis[v]) {\n                q.push(v);\n                vis[v] = true;\n            }\n        }\n    }\n}\n```\n\n---\n\n## 3. 连通分量计数\n\n```cpp\nint countComponents(int n) {\n    int cnt = 0;\n    for (int i = 0; i < n; i++) {\n        if (!vis[i]) {\n            cnt++;\n            dfs(i);  // 遍历整个连通分量\n        }\n    }\n    return cnt;\n}\n```\n\n---\n\n## 本章小结\n\n1. 图的DFS/BFS与树类似，必须用`vis`避免重复访问\n2. 连通分量：遍历所有未访问节点，DFS一次计一个分量\n3. DFS适合连通性检测，BFS适合最短路\n",
+    "difficulty": 4,
+    "order": 12,
+    "category_name": "数据结构",
+    "category_slug": "data-structure"
+  },
+  {
+    "id": 40,
+    "title": "贪心算法",
+    "slug": "greedy",
+    "content": "# 贪心算法\n\n## 本章简介\n贪心算法每一步都做出当前最优选择，期望达到全局最优。\n\n---\n\n## 1. 贪心算法思想\n\n每一步都选择当前最优解，不回头，不考虑整体最优的全局证明（竞赛中常用）。\n\n**关键**：要能证明贪心策略正确性！\n\n---\n\n## 2. 经典例题：活动选择\n\n每次选最早结束的兼容活动：\n\n```cpp\nstruct Act { int s, e; };\nbool cmp(Act a, Act b) { return a.e < b.e; }\n\nint main() {\n    Act acts[] = {{1,4},{3,5},{0,6},{5,7},{3,9}};\n    int n = 5;\n    sort(acts, acts+n, cmp);\n\n    int cnt = 0, lastEnd = 0;\n    for (int i = 0; i < n; i++) {\n        if (acts[i].s >= lastEnd) {\n            cnt++;\n            lastEnd = acts[i].e;\n        }\n    }\n    cout << cnt << endl;  // 3\n}\n```\n\n---\n\n## 3. 找零钱问题\n\n```cpp\n// 货币面值为：100, 50, 20, 10, 5, 1\nint coins[] = {100, 50, 20, 10, 5, 1};\nint count = 0;\n\nfor (int c : coins) {\n    count += amount / c;\n    amount %= c;\n}\n```\n\n---\n\n## 本章小结\n\n1. 贪心：每步最优，需证明能导致全局最优\n2. 活动选择：按结束时间排序，选最早结束的\n3. 贪心不总是正确，使用前要思考证明\n",
+    "difficulty": 3,
+    "order": 1,
+    "category_name": "算法",
+    "category_slug": "algorithm"
+  },
+  {
+    "id": 41,
+    "title": "递推与动态规划入门",
+    "slug": "recurrence-dp",
+    "content": "# 递推与动态规划入门\n\n## 本章简介\n递推和DP是竞赛中最重要的算法思想。\n\n---\n\n## 1. 递推\n\n从已知推未知，逐步推导。\n\n### 例题：爬楼梯\n\n```cpp\n// f(n) = f(n-1) + f(n-2)，边界：f(1)=1, f(2)=2\nint climb(int n) {\n    if (n <= 2) return n;\n    int a = 1, b = 2;\n    for (int i = 3; i <= n; i++) {\n        int c = a + b;\n        a = b;\n        b = c;\n    }\n    return b;\n}\n```\n\n---\n\n## 2. 动态规划初步\n\nDP三要素：**状态、转移、初始化**。\n\n### 例题：最大子段和\n\n```cpp\nint maxSubArray(int a[], int n) {\n    int dp[10000];\n    dp[0] = a[0];\n    int ans = dp[0];\n\n    for (int i = 1; i < n; i++) {\n        dp[i] = max(a[i], dp[i-1] + a[i]);\n        ans = max(ans, dp[i]);\n    }\n    return ans;\n}\n```\n\n### 例题：打家劫舍\n\n```cpp\nint rob(int money[], int n) {\n    if (n == 1) return money[0];\n    if (n == 2) return max(money[0], money[1]);\n\n    int dp[1000];\n    dp[0] = money[0];\n    dp[1] = max(money[0], money[1]);\n\n    for (int i = 2; i < n; i++) {\n        dp[i] = max(dp[i-1], dp[i-2] + money[i]);\n    }\n    return dp[n-1];\n}\n```\n\n---\n\n## 本章小结\n\n1. 递推：找规律建公式，从已知推到未知\n2. DP核心：状态+转移+初始化\n3. 最大子段和：`dp[i]=max(a[i], dp[i-1]+a[i])`\n4. 打家劫舍：`dp[i]=max(dp[i-1], dp[i-2]+money[i])`\n",
+    "difficulty": 3,
+    "order": 2,
+    "category_name": "算法",
+    "category_slug": "algorithm"
+  },
+  {
+    "id": 42,
+    "title": "简单一维DP",
+    "slug": "dp-1d",
+    "content": "# 简单一维DP\n\n## 本章简介\n深入讲解一维动态规划的经典例题。\n\n---\n\n## 1. 斐波那契数列\n\n```cpp\nint fib(int n) {\n    if (n <= 2) return 1;\n    int a = 1, b = 1;\n    for (int i = 3; i <= n; i++) {\n        int c = a + b;\n        a = b;\n        b = c;\n    }\n    return b;\n}\n```\n\n---\n\n## 2. 最长上升子序列（LIS）\n\n```cpp\nint LIS(int a[], int n) {\n    int dp[1000] = {0};\n    int ans = 0;\n    for (int i = 0; i < n; i++) {\n        dp[i] = 1;  // 自己\n        for (int j = 0; j < i; j++) {\n            if (a[j] < a[i])\n                dp[i] = max(dp[i], dp[j] + 1);\n        }\n        ans = max(ans, dp[i]);\n    }\n    return ans;\n}\n```\n\n---\n\n## 3. 合唱队形（NOIP2005）\n\n```cpp\n// 求：满足先递增再递减的最多人数\n// 思路：求每个位置左边最长递增、右边最长递减，取最大值\n```\n\n---\n\n## 本章小结\n\n1. LIS：O(n²)DP，逐个比较前面的数\n2. 状态设计：`dp[i]`表示以i结尾的最优解\n3. 转移：枚举分割点或前驱状态\n",
+    "difficulty": 4,
+    "order": 3,
+    "category_name": "算法",
+    "category_slug": "algorithm"
+  },
+  {
+    "id": 43,
+    "title": "简单背包DP",
+    "slug": "knapsack",
+    "content": "# 简单背包DP\n\n## 本章简介\n介绍0-1背包和完全背包的解法。\n\n---\n\n## 1. 0-1背包\n\n每件物品只能选0或1次：\n\n```cpp\nint knapsack01(int w[], int v[], int n, int C) {\n    int dp[1005] = {0};\n\n    for (int i = 0; i < n; i++) {\n        for (int c = C; c >= w[i]; c--) {\n            dp[c] = max(dp[c], dp[c - w[i]] + v[i]);\n        }\n    }\n\n    return dp[C];\n}\n```\n\n**关键**：内层循环**倒序**，确保每件物品只选一次。\n\n---\n\n## 2. 完全背包\n\n每件物品可以选无限次：\n\n```cpp\nint knapsackComplete(int w[], int v[], int n, int C) {\n    int dp[1005] = {0};\n\n    for (int i = 0; i < n; i++) {\n        for (int c = w[i]; c <= C; c++) {\n            dp[c] = max(dp[c], dp[c - w[i]] + v[i]);\n        }\n    }\n\n    return dp[C];\n}\n```\n\n**关键**：内层循环**正序**。\n\n---\n\n## 本章小结\n\n1. 0-1背包：内层倒序，每件物品选一次\n2. 完全背包：内层正序，每件物品可选无限次\n3. 空间优化：一维dp，容量从大到小/小到大遍历\n",
+    "difficulty": 5,
+    "order": 4,
+    "category_name": "算法",
+    "category_slug": "algorithm"
+  },
+  {
+    "id": 44,
+    "title": "简单区间DP",
+    "slug": "interval-dp",
+    "content": "# 简单区间DP\n\n## 本章简介\n区间DP处理在一个区间上进行的优化问题。\n\n---\n\n## 1. 区间DP模板\n\n```cpp\nfor (int len = 2; len <= n; len++) {          // 区间长度\n    for (int i = 1; i + len - 1 <= n; i++) {  // 起点\n        int j = i + len - 1;                   // 终点\n        dp[i][j] = INF;\n        for (int k = i; k < j; k++) {          // 分割点\n            dp[i][j] = min(dp[i][j], dp[i][k] + dp[k+1][j] + cost);\n        }\n    }\n}\n```\n\n---\n\n## 2. 例题：合并石子\n\n```cpp\n// 合并相邻两堆石子，代价为重量之和，求最小总代价\nint stoneMerge(int w[], int n) {\n    int prefix[105] = {0};\n    for (int i = 1; i <= n; i++) prefix[i] = prefix[i-1] + w[i];\n\n    int dp[105][105] = {0};\n\n    for (int len = 2; len <= n; len++) {\n        for (int i = 1; i + len - 1 <= n; i++) {\n            int j = i + len - 1;\n            dp[i][j] = INT_MAX;\n            for (int k = i; k < j; k++) {\n                dp[i][j] = min(dp[i][j],\n                    dp[i][k] + dp[k+1][j] + prefix[j] - prefix[i-1]);\n            }\n        }\n    }\n    return dp[1][n];\n}\n```\n\n---\n\n## 本章小结\n\n1. 区间DP：枚举长度，再枚举起点和分割点\n2. `dp[i][j]`表示区间[i,j]的最优解\n3. 外层枚举长度，内层枚举起点的合并点\n",
+    "difficulty": 5,
+    "order": 5,
+    "category_name": "算法",
+    "category_slug": "algorithm"
+  },
+  {
+    "id": 45,
+    "title": "深度优先搜索（DFS）",
+    "slug": "dfs",
+    "content": "# 深度优先搜索（DFS）\n\n## 本章简介\nDFS是搜索问题的核心算法，用递归实现深度优先。\n\n---\n\n## 1. DFS基本模板\n\n```cpp\nvoid dfs(int state) {\n    if (终止条件) {\n        记录答案;\n        return;\n    }\n\n    for (每种选择) {\n        if (选择可行 && !vis[选择]) {\n            做选择;\n            dfs(state + 1);\n            撤销选择;  // 回溯\n        }\n    }\n}\n```\n\n---\n\n## 2. 全排列\n\n```cpp\nint n = 3;\nint used[11];\nint path[11];\n\nvoid dfs(int step) {\n    if (step > n) {\n        for (int i = 1; i <= n; i++) cout << path[i] << \" \";\n        cout << endl;\n        return;\n    }\n\n    for (int i = 1; i <= n; i++) {\n        if (!used[i]) {\n            used[i] = 1;\n            path[step] = i;\n            dfs(step + 1);\n            used[i] = 0;  // 撤销\n        }\n    }\n}\n```\n\n---\n\n## 3. 组合问题\n\n```cpp\nvoid combine(int start, int depth) {\n    if (depth == k) {\n        for (int i = 0; i < k; i++) cout << path[i] << \" \";\n        cout << endl;\n        return;\n    }\n    for (int i = start; i <= n; i++) {\n        path[depth] = i;\n        combine(i + 1, depth + 1);\n    }\n}\n```\n\n---\n\n## 4. 迷宫问题\n\n```cpp\nint maze[5][5] = {\n    {0, 0, 1, 0, 0},\n    {0, 0, 0, 0, 0},\n    {1, 0, 1, 0, 1},\n    {0, 0, 0, 0, 0},\n    {0, 1, 0, 0, 0}\n};\nbool vis[5][5];\nint dx[4] = {0, 0, 1, -1};\nint dy[4] = {1, -1, 0, 0};\n\nbool dfs(int x, int y) {\n    if (x == 4 && y == 4) return true;\n    vis[x][y] = 1;\n    for (int dir = 0; dir < 4; dir++) {\n        int nx = x + dx[dir], ny = y + dy[dir];\n        if (nx>=0 && nx<5 && ny>=0 && ny<5 && !maze[nx][ny] && !vis[nx][ny]) {\n            if (dfs(nx, ny)) return true;\n        }\n    }\n    return false;\n}\n```\n\n---\n\n## 本章小结\n\n1. DFS核心：递归+回溯，用vis避免重复访问\n2. 全排列：标记已用数字，path记录路径\n3. 迷宫：4方向扩展，边界检查\n4. 剪枝：提前排除无效搜索可大幅提升效率\n",
+    "difficulty": 5,
+    "order": 6,
+    "category_name": "算法",
+    "category_slug": "algorithm"
+  },
+  {
+    "id": 46,
+    "title": "广度优先搜索（BFS）",
+    "slug": "bfs",
+    "content": "# 广度优先搜索（BFS）\n\n## 本章简介\nBFS层层扩展，能在无权图中找到最短路径。\n\n---\n\n## 1. BFS基本模板\n\n```cpp\n#include <queue>\nvoid bfs(起点) {\n    queue<状态> q;\n    q.push(起点);\n    vis[起点] = true;\n\n    while (!q.empty()) {\n        auto cur = q.front();\n        q.pop();\n\n        if (到达目标) { 处理答案; }\n\n        for (每种扩展) {\n            if (扩展合法 && !vis[扩展]) {\n                q.push(扩展);\n                vis[扩展] = true;\n            }\n        }\n    }\n}\n```\n\n---\n\n## 2. BFS求最短路\n\n```cpp\nstruct Node { int x, y, dist; };\n\nint bfs() {\n    queue<Node> q;\n    q.push({0, 0, 0});\n    vis[0][0] = true;\n\n    while (!q.empty()) {\n        Node cur = q.front();\n        q.pop();\n\n        if (cur.x == 4 && cur.y == 4) return cur.dist;\n\n        for (int dir = 0; dir < 4; dir++) {\n            int nx = cur.x + dx[dir];\n            int ny = cur.y + dy[dir];\n            if (可通行 && !vis[nx][ny]) {\n                q.push({nx, ny, cur.dist + 1});\n                vis[nx][ny] = true;\n            }\n        }\n    }\n    return -1;\n}\n```\n\n---\n\n## 3. BFS与DFS对比\n\n| 特征 | DFS | BFS |\n|------|-----|-----|\n| 数据结构 | 栈（递归） | 队列 |\n| 搜索顺序 | 深度优先 | 层次优先 |\n| 最短路 | ❌ | ✅ |\n| 内存 | 较省 | 较多 |\n\n---\n\n## 本章小结\n\n1. BFS用队列，层层扩展，能找到**最短路径**\n2. 用`vis`数组避免重复访问\n3. BFS适合：迷宫最短路、层序遍历、拓扑排序\n4. DFS适合：全排列、组合、连通块、递归深搜\n",
+    "difficulty": 5,
+    "order": 7,
+    "category_name": "算法",
+    "category_slug": "algorithm"
+  },
+  {
+    "id": 47,
+    "title": "Flood Fill",
+    "slug": "flood-fill",
+    "content": "# Flood Fill（洪水填充）\n\n## 本章简介\nFlood Fill是一种区域填充算法，常用于连通块计数。\n\n---\n\n## 1. DFS版Flood Fill\n\n```cpp\nint n, m;\nint a[10][10];\nbool vis[10][10];\nint dx[4] = {0, 0, 1, -1};\nint dy[4] = {1, -1, 0, 0};\n\nvoid fill(int x, int y) {\n    if (x < 0 || x >= n || y < 0 || y >= m) return;\n    if (vis[x][y] || a[x][y] == 1) return;\n\n    vis[x][y] = true;\n    fill(x+1, y);\n    fill(x-1, y);\n    fill(x, y+1);\n    fill(x, y-1);\n}\n```\n\n---\n\n## 2. BFS版Flood Fill\n\n```cpp\nvoid bfsFill(int sx, int sy) {\n    queue<pair<int,int>> q;\n    q.push({sx, sy});\n    vis[sx][sy] = true;\n\n    while (!q.empty()) {\n        auto [x, y] = q.front();\n        q.pop();\n\n        for (int dir = 0; dir < 4; dir++) {\n            int nx = x + dx[dir], ny = y + dy[dir];\n            if (nx>=0 && nx<n && ny>=0 && ny<m && !vis[nx][ny] && a[nx][ny]!=1) {\n                vis[nx][ny] = true;\n                q.push({nx, ny});\n            }\n        }\n    }\n}\n```\n\n---\n\n## 3. 连通块计数\n\n```cpp\nint countComponents() {\n    int cnt = 0;\n    for (int i = 0; i < n; i++) {\n        for (int j = 0; j < m; j++) {\n            if (!vis[i][j] && a[i][j] != 1) {\n                bfsFill(i, j);\n                cnt++;\n            }\n        }\n    }\n    return cnt;\n}\n```\n\n---\n\n## 本章小结\n\n1. Flood Fill：从起点出发，填充所有连通的格子\n2. DFS版适合小区域，BFS版适合大区域（避免栈溢出）\n3. 4方向扩展，注意边界判断\n4. 常用于：迷宫连通块、岛屿计数\n",
+    "difficulty": 5,
+    "order": 8,
+    "category_name": "算法",
+    "category_slug": "algorithm"
+  },
+  {
+    "id": 48,
+    "title": "进位制转换",
+    "slug": "base-conversion",
+    "content": "# 进位制转换\n\n## 本章简介\n学习二进制、八进制、十进制、十六进制之间的相互转换方法。\n\n---\n\n## 1. 十进制转其他进制\n\n**除基取余法**：\n\n```cpp\n// 十进制转二进制\nstring decToBin(int n) {\n    if (n == 0) return \"0\";\n    string s;\n    while (n > 0) {\n        s = char('0' + (n % 2)) + s;\n        n /= 2;\n    }\n    return s;\n}\n\n// 十进制转十六进制\nstring decToHex(int n) {\n    if (n == 0) return \"0\";\n    string s, hex = \"0123456789ABCDEF\";\n    while (n > 0) {\n        s = hex[n % 16] + s;\n        n /= 16;\n    }\n    return s;\n}\n```\n\n---\n\n## 2. 其他进制转十进制\n\n**按权展开**：\n\n```cpp\nint binToDec(string s) {\n    int result = 0;\n    for (char c : s) {\n        result = result * 2 + (c - '0');\n    }\n    return result;\n}\n```\n\n---\n\n## 3. 二进制与八进制、十六进制\n\n```cpp\n// 二进制 -> 八进制（每3位一组）\n// 1101011₂ = 001 101 011 = 153₈\n\n// 二进制 -> 十六进制（每4位一组）\n// 1101011₂ = 0110 1011 = 6B₁₆\n```\n\n---\n\n## 本章小结\n\n1. 十进制转其他进制：除基取余，倒序取余\n2. 其他进制转十进制：按权展开\n3. 二进制↔八进制：3位一组；二进制↔十六进制：4位一组\n",
+    "difficulty": 1,
+    "order": 1,
+    "category_name": "数学与其他",
+    "category_slug": "math"
+  },
+  {
+    "id": 49,
+    "title": "ASCII码与字符处理",
+    "slug": "ascii",
+    "content": "# ASCII码与字符处理\n\n## 本章简介\nASCII码用数字表示字符，是字符处理的基础。\n\n---\n\n## 1. ASCII码表（关键值）\n\n| 字符 | ASCII |\n|------|-------|\n| `'0'`~`'9'` | 48~57 |\n| `'A'`~`'Z'` | 65~90 |\n| `'a'`~`'z'` | 97~122 |\n\n---\n\n## 2. 字符运算\n\n```cpp\nchar c = 'A';\ncout << (int)c << endl;      // 65\ncout << (char)(c + 1) << endl; // 'B'\ncout << (char)('a' - 32) << endl; // 'A'（大写转小写）\ncout << (char)('A' + 32) << endl; // 'a'（小写转大写）\n```\n\n---\n\n## 3. 字符分类\n\n```cpp\n#include <cctype>\nisalpha('A');   // 1 字母\nisdigit('5');   // 1 数字\nisupper('A');   // 1 大写\nislower('a');   // 1 小写\ntoupper('a');   // 'A'\ntolower('A');   // 'a'\n```\n\n---\n\n## 本章小结\n\n1. `'A'`=65, `'a'`=97, `'0'`=48\n2. 大写转小写：`+32`，小写转大写：`-32`\n3. `<cctype>`提供字符分类和转换函数\n",
+    "difficulty": 2,
+    "order": 2,
+    "category_name": "数学与其他",
+    "category_slug": "math"
+  },
+  {
+    "id": 50,
+    "title": "集合与加法原理、乘法原理",
+    "slug": "set-ppp",
+    "content": "# 集合与加法原理、乘法原理\n\n## 本章简介\n计数问题的基础，竞赛中经常用到。\n\n---\n\n## 1. 集合（C++ set）\n\n```cpp\n#include <set>\nusing namespace std;\n\nint main() {\n    set<int> s;\n    s.insert(3);\n    s.insert(1);\n    s.insert(4);\n    s.insert(1);  // 重复，不插入\n\n    for (int x : s) cout << x << \" \";  // 自动排序：1 3 4\n    return 0;\n}\n```\n\n---\n\n## 2. 加法原理\n\n完成一件事有**n类**方法，第i类有mᵢ种，总方法数：\n```\nm₁ + m₂ + ... + mₙ\n```\n\n**例**：从A地到B地，汽车3班，火车2班，飞机1班，共3+2+1=6种方式。\n\n---\n\n## 3. 乘法原理\n\n完成一件事需要**n步**，第i步有mᵢ种，总方法数：\n```\nm₁ × m₂ × ... × mₙ\n```\n\n**例**：上衣4件，裤子3条，共有4×3=12种搭配方式。\n\n---\n\n## 本章小结\n\n1. 加法原理：**分类**相加（每类方法都能独立完成这件事）\n2. 乘法原理：**分步**相乘（每步缺一不可）\n3. 竞赛中常结合排列组合使用\n",
+    "difficulty": 2,
+    "order": 3,
+    "category_name": "数学与其他",
+    "category_slug": "math"
+  },
+  {
+    "id": 51,
+    "title": "排列与组合",
+    "slug": "permutation-combination",
+    "content": "# 排列与组合\n\n## 本章简介\n介绍排列数和组合数的计算方法。\n\n---\n\n## 1. 排列数\n\n从n个不同元素中取出m个排成一排：\n\n```\nA(n,m) = n! / (n-m)! = n × (n-1) × ... × (n-m+1)\n```\n\n```cpp\nlong long A(int n, int m) {\n    long long res = 1;\n    for (int i = 0; i < m; i++) res *= (n - i);\n    return res;\n}\n```\n\n---\n\n## 2. 组合数\n\n从n个不同元素中取出m个，不考虑顺序：\n\n```\nC(n,m) = n! / (m! × (n-m)!)\n```\n\n### 杨辉三角递推\n\n```cpp\nlong long C[101][101];\n\nfor (int i = 0; i <= 100; i++) {\n    C[i][0] = C[i][i] = 1;\n    for (int j = 1; j < i; j++) {\n        C[i][j] = C[i-1][j] + C[i-1][j-1];\n    }\n}\n```\n\n---\n\n## 3. 阶乘+逆元（用于大组合数）\n\n```cpp\nconst long long MOD = 1e9+7;\n\nlong long modPow(long long a, long long e) {\n    long long r = 1;\n    while (e) {\n        if (e & 1) r = r * a % MOD;\n        a = a * a % MOD;\n        e >>= 1;\n    }\n    return r;\n}\n\nlong long Cbig(int n, int m) {\n    if (m > n) return 0;\n    return fac[n] * inv[m] % MOD * inv[n-m] % MOD;\n}\n```\n\n---\n\n## 本章小结\n\n1. 排列A(n,m)：考虑顺序\n2. 组合C(n,m)：不考虑顺序\n3. 杨辉三角：递推C(n,m)=C(n-1,m)+C(n-1,m-1)\n4. 大组合数用阶乘+逆元，O(n)预处理，O(1)查询\n",
+    "difficulty": 4,
+    "order": 4,
+    "category_name": "数学与其他",
+    "category_slug": "math"
+  },
+  {
+    "id": 52,
+    "title": "杨辉三角",
+    "slug": "pascals-triangle",
+    "content": "# 杨辉三角\n\n## 本章简介\n杨辉三角是组合数的几何表示，有丰富的数学性质。\n\n---\n\n## 1. 基本性质\n\n```\n        1\n       1 1\n      1 2 1\n     1 3 3 1\n    1 4 6 4 1\n```\n\n性质：\n- 第n行第k个数 = C(n-1, k-1)\n- 左右对称\n- 每个数等于肩上两数之和\n\n---\n\n## 2. 递推构建\n\n```cpp\nint n = 10;\nint a[11][11] = {0};\n\nfor (int i = 1; i <= n; i++) {\n    a[i][1] = a[i][i] = 1;\n    for (int j = 2; j < i; j++) {\n        a[i][j] = a[i-1][j-1] + a[i-1][j];\n    }\n}\n```\n\n---\n\n## 3. 应用\n\n```cpp\n// 路径计数：从(0,0)到(m,n)，只能向右或向下\n// 路径数 = C(m+n, n)\ncout << C(m+n, n) << endl;\n\n// 找规律递推\n// 例：爬楼梯，每次1步或2步\n// f(n) = f(n-1) + f(n-2)\n```\n\n---\n\n## 本章小结\n\n1. 杨辉三角第n行第k个数 = C(n-1, k-1)\n2. 构建：两端为1，中间等于肩上两数之和\n3. 组合数学的基础工具\n",
+    "difficulty": 4,
+    "order": 5,
+    "category_name": "数学与其他",
+    "category_slug": "math"
+  },
+  {
+    "id": 53,
+    "title": "模运算与取余",
+    "slug": "mod",
+    "content": "# 模运算与取余\n\n## 本章简介\n模运算是数论的基础，在密码学和竞赛中应用广泛。\n\n---\n\n## 1. 基本模运算\n\n```cpp\nint a = 17, b = 5;\n\ncout << a % b << endl;    // 2（17除以5余2）\ncout << (-7 % 3) << endl; // -1（负数取余，符号与被除数一致）\n\n// 模运算性质\n// (a + b) % mod = (a % mod + b % mod) % mod\n// (a * b) % mod = (a % mod) * (b % mod) % mod\n```\n\n---\n\n## 2. 快速幂取模\n\n```cpp\nlong long modPow(long long a, long long e, long long mod) {\n    long long res = 1;\n    a %= mod;\n    while (e) {\n        if (e & 1) res = res * a % mod;\n        a = a * a % mod;\n        e >>= 1;\n    }\n    return res;\n}\n```\n\n---\n\n## 3. 模运算技巧\n\n```cpp\n// 判断奇偶\nif (n % 2 == 0) // 偶数\nelse            // 奇数\n\n// 循环数组\nint next = (i + 1) % n;\n\n// 大数取模\nint modOfBigNumber(string s, int mod) {\n    int r = 0;\n    for (char c : s) {\n        r = (r * 10 + (c - '0')) % mod;\n    }\n    return r;\n}\n```\n\n---\n\n## 本章小结\n\n1. 模运算：`a % b`取余，注意负数结果符号\n2. 快速幂：O(log e)计算a^e % mod\n3. 性质：(a+b)%mod = (a%mod+b%mod)%mod，可防溢出\n",
+    "difficulty": 3,
+    "order": 6,
+    "category_name": "数学与其他",
+    "category_slug": "math"
+  },
+  {
+    "id": 54,
+    "title": "整数唯一分解定理",
+    "slug": "unique-factorization",
+    "content": "# 整数唯一分解定理\n\n## 本章简介\n任何大于1的整数都可以唯一分解为质数的乘积。\n\n---\n\n## 1. 基本分解\n\n```cpp\n// 分解质因数\nvoid factor(int n) {\n    for (int i = 2; i * i <= n; i++) {\n        while (n % i == 0) {\n            cout << i << \" \";\n            n /= i;\n        }\n    }\n    if (n > 1) cout << n << endl;\n}\n\nint main() {\n    factor(60);  // 2 2 3 5（60 = 2² × 3 × 5）\n    return 0;\n}\n```\n\n---\n\n## 2. 求约数个数\n\n若 n = p₁^a₁ × p₂^a₂ × ... × pk^ak，则：\n\n```\n约数个数 = (a₁+1)(a₂+1)...(ak+1)\n```\n\n```cpp\nint divisorCount(int n) {\n    int cnt = 1;\n    for (int i = 2; i * i <= n; i++) {\n        int power = 0;\n        while (n % i == 0) {\n            n /= i;\n            power++;\n        }\n        if (power > 0) cnt *= (power + 1);\n    }\n    if (n > 1) cnt *= 2;\n    return cnt;\n}\n```\n\n---\n\n## 本章小结\n\n1. 唯一分解：任何数可分解为质数乘积\n2. 分解质因数：试除到√n\n3. 约数个数公式：∏(aᵢ+1)\n",
+    "difficulty": 3,
+    "order": 7,
+    "category_name": "数学与其他",
+    "category_slug": "math"
+  },
+  {
+    "id": 55,
+    "title": "欧几里得算法",
+    "slug": "euclidean",
+    "content": "# 欧几里得算法\n\n## 本章简介\n欧几里得算法（辗转相除法）是求最大公约数的最快方法。\n\n---\n\n## 1. 最大公约数（GCD）\n\n```cpp\nint gcd(int a, int b) {\n    if (b == 0) return a;\n    return gcd(b, a % b);\n}\n\n// 迭代版\nint gcdIter(int a, int b) {\n    while (b) {\n        int t = a % b;\n        a = b;\n        b = t;\n    }\n    return a;\n}\n```\n\n---\n\n## 2. 最小公倍数（LCM）\n\n```cpp\nint lcm(int a, int b) {\n    return a / gcd(a, b) * b;  // 先除后乘避免溢出\n}\n```\n\n---\n\n## 3. 扩展欧几里得算法\n\n求 ax + by = gcd(a,b) 的一组解：\n\n```cpp\nint exgcd(int a, int b, int& x, int& y) {\n    if (b == 0) { x = 1; y = 0; return a; }\n    int x1, y1;\n    int g = exgcd(b, a % b, x1, y1);\n    x = y1;\n    y = x1 - (a / b) * y1;\n    return g;\n}\n```\n\n---\n\n## 本章小结\n\n1. gcd(a,b)=gcd(b,a%b)，O(log min(a,b))\n2. lcm(a,b) = a/gcd(a,b)×b\n3. 扩展欧几里得：求逆元，解同余方程\n",
+    "difficulty": 3,
+    "order": 8,
+    "category_name": "数学与其他",
+    "category_slug": "math"
+  },
+  {
+    "id": 56,
+    "title": "埃氏筛与线性筛",
+    "slug": "sieve",
+    "content": "# 埃氏筛与线性筛\n\n## 本章简介\n介绍两种高效求质数的算法。\n\n---\n\n## 1. 埃氏筛法\n\n```cpp\nvector<int> sieve(int n) {\n    vector<bool> isPrime(n+1, true);\n    isPrime[0] = isPrime[1] = false;\n\n    for (int i = 2; i*i <= n; i++) {\n        if (isPrime[i]) {\n            for (int j = i*i; j <= n; j += i) {\n                isPrime[j] = false;\n            }\n        }\n    }\n\n    vector<int> primes;\n    for (int i = 2; i <= n; i++) {\n        if (isPrime[i]) primes.push_back(i);\n    }\n    return primes;\n}\n```\n\n**时间复杂度**：O(n log log n)\n\n---\n\n## 2. 线性筛（欧拉筛）\n\n```cpp\nvector<int> linearSieve(int n) {\n    vector<bool> isPrime(n+1, true);\n    vector<int> primes;\n    isPrime[0] = isPrime[1] = false;\n\n    for (int i = 2; i <= n; i++) {\n        if (isPrime[i]) primes.push_back(i);\n        for (int p : primes) {\n            if (i * p > n) break;\n            isPrime[i * p] = false;\n            if (i % p == 0) break;\n        }\n    }\n    return primes;\n}\n```\n\n**时间复杂度**：O(n)，每个合数只被筛一次。\n\n---\n\n## 本章小结\n\n1. 埃氏筛：从i²开始标记i的倍数\n2. 线性筛：每个合数被最小质因子筛掉，O(n)\n3. 求1~n所有质数用筛法，比逐个判定快\n",
+    "difficulty": 4,
+    "order": 9,
+    "category_name": "数学与其他",
+    "category_slug": "math"
+  },
+  {
+    "id": 57,
+    "title": "高精度计算",
+    "slug": "high-precision",
+    "content": "# 高精度计算\n\n## 本章简介\n当整数超出long long范围时，用字符串模拟计算。\n\n---\n\n## 1. 高精度加法\n\n```cpp\nstring add(string a, string b) {\n    reverse(a.begin(), a.end());\n    reverse(b.begin(), b.end());\n\n    int carry = 0;\n    string res;\n    for (size_t i = 0; i < max(a.size(), b.size()); i++) {\n        int da = (i < a.size()) ? a[i]-'0' : 0;\n        int db = (i < b.size()) ? b[i]-'0' : 0;\n        int sum = da + db + carry;\n        res.push_back('0' + (sum % 10));\n        carry = sum / 10;\n    }\n    if (carry) res.push_back('0' + carry);\n    reverse(res.begin(), res.end());\n    return res;\n}\n```\n\n---\n\n## 2. 高精度乘法（大整数×整数）\n\n```cpp\nstring multiply(string num, int factor) {\n    reverse(num.begin(), num.end());\n    int carry = 0;\n    string res;\n    for (size_t i = 0; i < num.size() || carry; i++) {\n        int d = (i < num.size()) ? num[i]-'0' : 0;\n        int prod = d * factor + carry;\n        res.push_back('0' + (prod % 10));\n        carry = prod / 10;\n    }\n    reverse(res.begin(), res.end());\n    return res;\n}\n```\n\n---\n\n## 本章小结\n\n1. 高精度：字符串存储，按位计算\n2. 加法：逆序逐位相加，处理进位\n3. 记得去除前导0（保留\"0\"本身）\n",
+    "difficulty": 4,
+    "order": 10,
+    "category_name": "数学与其他",
+    "category_slug": "math"
+  },
+  {
+    "id": 58,
+    "title": "前缀和与差分",
+    "slug": "prefix-difference",
+    "content": "# 前缀和与差分\n\n## 本章简介\n前缀和用于O(1)查询区间和，差分用于高效批量区间修改。\n\n---\n\n## 1. 一维前缀和\n\n```cpp\nint a[11] = {0, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19};\nint prefix[11];\n\nfor (int i = 1; i <= 10; i++) {\n    prefix[i] = prefix[i-1] + a[i];\n}\n\n// 查询区间[3,7]的和\nint l = 3, r = 7;\nint sum = prefix[r] - prefix[l-1];  // 5+7+9+11+13 = 45\n```\n\n---\n\n## 2. 差分\n\n差分是前缀和的逆运算：\n\n```cpp\n// 对区间[l, r]中每个元素加k\ndiff[l] += k;\ndiff[r+1] -= k;\n// 求前缀和后，a[l]~a[r]都被加了k\n```\n\n---\n\n## 本章小结\n\n1. 前缀和：`prefix[i] = sum(a[1]~a[i])`\n2. 区间和：`sum(l,r) = prefix[r] - prefix[l-1]`，O(1)查询\n3. 差分：区间[l,r]+k → `diff[l]+=k, diff[r+1]-=k`\n4. 适合多次查询和批量修改的场景\n",
+    "difficulty": 4,
+    "order": 11,
+    "category_name": "数学与其他",
+    "category_slug": "math"
+  },
+  {
+    "id": 59,
+    "title": "二分查找与二分答案",
+    "slug": "binary-search",
+    "content": "# 二分查找与二分答案\n\n## 本章简介\n二分查找是O(log n)高效查找算法，二分答案把求最优值转化为判定问题。\n\n---\n\n## 1. 二分查找\n\n```cpp\nint binarySearch(int a[], int n, int target) {\n    int left = 0, right = n - 1;\n    while (left <= right) {\n        int mid = left + (right - left) / 2;  // 防溢出\n        if (a[mid] == target) return mid;\n        else if (a[mid] < target) left = mid + 1;\n        else right = mid - 1;\n    }\n    return -1;\n}\n```\n\n---\n\n## 2. 二分答案\n\n把求最优值问题转化为判定问题：\n\n```cpp\n// 判断能否以mid为最大载重完成运输\nbool can(int weights[], int n, int days, int cap) {\n    int need = 1, cur = 0;\n    for (int i = 0; i < n; i++) {\n        if (cur + weights[i] <= cap) cur += weights[i];\n        else { need++; cur = weights[i]; }\n    }\n    return need <= days;\n}\n\n// 二分搜索答案\nint lo = 0, hi = 1e9;\nwhile (lo < hi) {\n    int mid = (lo + hi) / 2;\n    if (can(weights, n, days, mid)) hi = mid;\n    else lo = mid + 1;\n}\n```\n\n---\n\n## 本章小结\n\n1. 二分查找：O(log n)，数组必须有序\n2. `mid = left + (right - left) / 2`防溢出\n3. 二分答案：答案有单调性时，将求最优转为判定\n",
+    "difficulty": 4,
+    "order": 12,
+    "category_name": "数学与其他",
+    "category_slug": "math"
+  },
+  {
+    "id": 60,
+    "title": "倍增与快速幂",
+    "slug": "doubling",
+    "content": "# 倍增与快速幂\n\n## 本章简介\n倍增思想用于快速跳过多个状态，快速幂是其经典应用。\n\n---\n\n## 1. 快速幂\n\nO(log e)计算 a^e：\n\n```cpp\nlong long modPow(long long a, long long e, long long mod) {\n    long long res = 1;\n    a %= mod;\n    while (e) {\n        if (e & 1) res = res * a % mod;\n        a = a * a % mod;\n        e >>= 1;\n    }\n    return res;\n}\n```\n\n---\n\n## 2. 矩阵快速幂\n\n```cpp\nstruct Matrix {\n    long long a[2][2];\n    Matrix operator*(const Matrix& b) {\n        Matrix r;\n        for (int i = 0; i < 2; i++)\n            for (int j = 0; j < 2; j++) {\n                r.a[i][j] = 0;\n                for (int k = 0; k < 2; k++)\n                    r.a[i][j] = (r.a[i][j] + a[i][k] * b.a[k][j]) % MOD;\n            }\n        return r;\n    }\n};\n\nMatrix mpow(Matrix A, long long e) {\n    Matrix R = {{{1,0},{0,1}}};  // 单位矩阵\n    while (e) {\n        if (e & 1) R = R * A;\n        A = A * A;\n        e >>= 1;\n    }\n    return R;\n}\n```\n\n---\n\n## 本章小结\n\n1. 快速幂：O(log e)计算a^e % mod\n2. 核心：指数按二进制拆分\n3. 矩阵快速幂可加速线性递推（斐波那契等）\n",
+    "difficulty": 4,
+    "order": 13,
+    "category_name": "数学与其他",
+    "category_slug": "math"
+  },
+  {
+    "id": 61,
+    "title": "初中代数基础",
+    "slug": "middle-school-algebra",
+    "content": "# 初中代数基础\n\n## 本章简介\n复习初中代数基础，为竞赛中的数学推导打基础。\n\n---\n\n## 1. 代数运算\n\n```cpp\n// 完全平方公式\n// (a+b)² = a² + 2ab + b²\n// (a-b)² = a² - 2ab + b²\n\n// 平方差公式\n// a² - b² = (a+b)(a-b)\n\n// 十字相乘法\n// x² + (p+q)x + pq = (x+p)(x+q)\n```\n\n---\n\n## 2. 不等式\n\n```cpp\n// 一元二次不等式\n// x² - 5x + 6 > 0\n// (x-2)(x-3) > 0\n// 解：x < 2 或 x > 3\n```\n\n---\n\n## 3. 例题：求根公式\n\n```cpp\n// 一元二次方程 ax² + bx + c = 0\ndouble delta = b*b - 4*a*c;\nif (delta >= 0) {\n    double x1 = (-b + sqrt(delta)) / (2*a);\n    double x2 = (-b - sqrt(delta)) / (2*a);\n    cout << x1 << \" \" << x2 << endl;\n}\n```\n\n---\n\n## 本章小结\n\n1. 完全平方、平方差、十字相乘法要熟练\n2. 不等式解法：先因式分解，找零点\n3. 求根公式：delta = b²-4ac\n",
+    "difficulty": 1,
+    "order": 14,
+    "category_name": "数学与其他",
+    "category_slug": "math"
+  },
+  {
+    "id": 62,
+    "title": "初中几何基础",
+    "slug": "middle-school-geometry",
+    "content": "# 初中几何基础\n\n## 本章简介\n复习初中几何基础，包括三角形、圆、矩形等常见图形的性质。\n\n---\n\n## 1. 三角形\n\n- **内角和**：180°\n- **面积**：S = 底×高÷2\n- **海伦公式**：S = √[p(p-a)(p-b)(p-c)]，其中p=(a+b+c)/2\n\n```cpp\n// 海伦公式\ndouble heron(double a, double b, double c) {\n    double p = (a + b + c) / 2;\n    return sqrt(p * (p-a) * (p-b) * (p-c));\n}\n```\n\n---\n\n## 2. 矩形与正方形\n\n- 矩形面积：S = 长 × 宽\n- 正方形面积：S = 边长²\n- 对角线长：√(a²+b²)\n\n---\n\n## 3. 圆\n\n- 圆面积：S = πr²\n- 圆周长：C = 2πr\n\n```cpp\nconst double PI = acos(-1);\ndouble area = PI * r * r;\ndouble circumference = 2 * PI * r;\n```\n\n---\n\n## 本章小结\n\n1. 三角形面积：底×高÷2，或海伦公式\n2. 矩形：长×宽，正方形：边长²\n3. 圆：πr²，2πr\n4. 竞赛中常把几何问题转化为代数计算\n",
+    "difficulty": 1,
+    "order": 15,
+    "category_name": "数学与其他",
+    "category_slug": "math"
+  }
+]
