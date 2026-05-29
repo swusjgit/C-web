@@ -1,0 +1,14 @@
+.git/
+.DS_Store
+
+backend/
+
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/tsconfig.tsbuildinfo
+frontend/public/media
+
+*.db
+.env
+backend/.env
