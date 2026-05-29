@@ -2,6 +2,10 @@
 
 面向中学生 CSP-J 学习的 Next.js + FastAPI 项目。
 
+## 在线访问
+
+生产站点：[https://swusjgit-c-web.netlify.app](https://swusjgit-c-web.netlify.app)
+
 ## GitHub Pages 部署
 
 本仓库已包含 `.github/workflows/pages.yml`。推送到 GitHub 的 `main` 分支后，GitHub Actions 会构建 `frontend` 并发布静态站点到 GitHub Pages。
