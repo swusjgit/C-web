@@ -3,6 +3,9 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { chapterSummaries } from "@/lib/staticChapters";
+import { cspjProblems } from "@/data/cspjProblems";
+import { studyPrinciples, syllabusModules, weeklyPracticePlan } from "@/data/cspjSyllabus";
 
 const difficultyLevels = [
   {
@@ -26,29 +29,29 @@ const difficultyLevels = [
   {
     level: 3,
     name: "数据结构",
-    desc: "链表、栈与队列、二叉树基础、基础图论、STL容器入门",
+    desc: "链表、栈与队列、二叉树基础、图的存储与遍历、常用 STL 容器入门",
     color: "from-teal-50 to-cyan-50",
     border: "border-teal-200",
     badge: "info" as const,
-    topics: ["vector", "stack/queue", "map/set", "邻接表"],
+    topics: ["vector", "stack/queue", "二叉树", "邻接表"],
   },
   {
     level: 4,
     name: "算法基础",
-    desc: "贪心算法、二分查找、高精度计算、基础排序、初次数论",
+    desc: "枚举模拟、贪心递推、二分查找、高精度计算、基础排序和初等数论",
     color: "from-blue-50 to-indigo-50",
     border: "border-blue-200",
     badge: "secondary" as const,
-    topics: ["排序算法", "二分答案", "gcd/lcm", "快速幂"],
+    topics: ["排序算法", "前缀和", "gcd/lcm", "素数筛"],
   },
   {
     level: 5,
     name: "CSP-J 冲刺",
-    desc: "DFS/BFS 搜索、动态规划入门、图论综合、最短路算法",
+    desc: "DFS/BFS 搜索、Flood Fill、一维动态规划、背包和区间 DP 入门",
     color: "from-indigo-50 to-purple-50",
     border: "border-indigo-200",
     badge: "default" as const,
-    topics: ["DFS", "BFS", "DP入门", "Dijkstra"],
+    topics: ["DFS", "BFS", "背包", "区间DP"],
   },
 ];
 
@@ -56,68 +59,60 @@ export default function HomePage() {
   return (
     <div>
       {/* ── Hero ── */}
-      <section className="relative bg-gradient-to-br from-[#1e40af] via-[#2563eb] to-[#3b82f6] text-white overflow-hidden">
-        {/* 装饰圆形 */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/3" />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/4" />
+      <section className="relative min-h-[560px] overflow-hidden text-white">
+        <Image
+          src="/img/generated/cspj-hero-classroom.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/90 via-[#1e40af]/70 to-[#1e40af]/15" />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-          <div className="flex flex-col md:flex-row items-center gap-10">
-            <div className="flex-1 max-w-2xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/15 rounded-full text-sm text-blue-100 mb-6">
-                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                2026 CSP-J 学习已开启
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-4">
-                备战 CSP-J
-                <br />
-                <span className="text-blue-200">从这里开始</span>
-              </h1>
-              <p className="text-lg text-blue-100 mb-8 leading-relaxed">
-                数据谷中学专属 C++ 学习平台，基于 NOI大纲，
-                系统梳理核心知识点，配套在线评测与历年真题。
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Link href="/cspj">
-                  <Button size="lg" className="bg-white text-[#2563eb] hover:bg-blue-50 shadow-lg font-semibold">
-                    进入 CSP-J 专区
-                  </Button>
-                </Link>
-                <Link href="/cspj/problems">
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="border-white/30 text-white hover:bg-white/10 bg-transparent"
-                  >
-                    浏览题库
-                  </Button>
-                </Link>
-              </div>
+        <div className="relative mx-auto flex min-h-[560px] max-w-7xl items-center px-4 py-20 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-sm text-blue-100">
+              <span className="h-2 w-2 rounded-full bg-green-400" />
+              2026 CSP-J 学习已开启
             </div>
-
-            {/* 右侧代码预览 */}
-            <div className="hidden md:block flex-shrink-0 w-[380px]">
-              <div className="bg-[#0f172a]/80 backdrop-blur rounded-2xl border border-white/10 shadow-2xl overflow-hidden">
-                <div className="flex items-center gap-1.5 px-4 py-3 bg-[#1e293b] border-b border-white/10">
-                  <span className="w-3 h-3 rounded-full bg-red-400" />
-                  <span className="w-3 h-3 rounded-full bg-yellow-400" />
-                  <span className="w-3 h-3 rounded-full bg-green-400" />
-                  <span className="ml-3 text-xs text-slate-400 font-mono">main.cpp</span>
-                </div>
-                <pre className="p-5 text-sm font-mono leading-relaxed overflow-x-auto">
-                  <code className="text-slate-300">
-                    <span className="text-purple-400">#include</span> <span className="text-green-400">&lt;iostream&gt;</span>
-                    {"\n"}<span className="text-purple-400">using namespace</span> std;
-                    {"\n"}<span className="text-purple-400">int</span> main() {"{"}
-                    {"\n"}  {"  "}<span className="text-purple-400">int</span> n;
-                    {"\n"}  {"  "}cin {">>"} n;
-                    {"\n"}  {"  "}<span className="text-purple-400">while</span>(n--) {"{"}
-                    {"\n"}    {"    "}solve();
-                    {"\n"}  {"  "}{"}"}
-                    {"\n"}  {"  "}<span className="text-purple-400">return</span> 0;
-                    {"\n"}{"}"}
-                  </code>
-                </pre>
+            <h1 className="mb-4 text-4xl font-bold leading-tight md:text-5xl">
+              备战 CSP-J
+              <br />
+              <span className="text-blue-200">按大纲稳步推进</span>
+            </h1>
+            <p className="mb-8 text-lg leading-relaxed text-blue-100">
+              数据谷中学 C++ 学习平台，围绕 NOI 2025 入门级大纲整理学习路线、
+              教程章节和基础训练题，帮助学生先把语法、思维和做题习惯打扎实。
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/cspj">
+                <Button size="lg" className="bg-white font-semibold text-[#2563eb] shadow-lg hover:bg-blue-50">
+                  进入 CSP-J 专区
+                </Button>
+              </Link>
+              <Link href="/cspj/problems">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white/30 bg-transparent text-white hover:bg-white/10"
+                >
+                  浏览题库
+                </Button>
+              </Link>
+            </div>
+            <div className="mt-8 grid max-w-xl grid-cols-3 gap-3 text-sm">
+              <div className="rounded-lg border border-white/15 bg-white/10 p-3">
+                <div className="font-semibold text-white">{chapterSummaries.length} 章</div>
+                <div className="mt-1 text-xs text-blue-100">教程内容</div>
+              </div>
+              <div className="rounded-lg border border-white/15 bg-white/10 p-3">
+                <div className="font-semibold text-white">{cspjProblems.length} 题</div>
+                <div className="mt-1 text-xs text-blue-100">基础训练</div>
+              </div>
+              <div className="rounded-lg border border-white/15 bg-white/10 p-3">
+                <div className="font-semibold text-white">{syllabusModules.length} 模块</div>
+                <div className="mt-1 text-xs text-blue-100">大纲覆盖</div>
               </div>
             </div>
           </div>
@@ -131,33 +126,33 @@ export default function HomePage() {
             {
               icon: "📖",
               title: "教程中心",
-              desc: "5个难度梯度，系统学习",
+              desc: `${chapterSummaries.length} 章大纲化教程`,
               href: "/cspj/tutorials",
               color: "bg-blue-50 border-blue-100 hover:border-blue-300",
             },
             {
               icon: "💻",
-              title: "在线题库",
-              desc: "历年真题 + 专项练习",
+              title: "训练题库",
+              desc: `${cspjProblems.length} 道首批精选题`,
               href: "/cspj/problems",
               color: "bg-green-50 border-green-100 hover:border-green-300",
             },
             {
               icon: "📝",
-              title: "模拟考试",
-              desc: "在线作答，自动评分",
+              title: "阶段测评",
+              desc: "按模块安排限时练习",
               href: "/cspj",
               color: "bg-amber-50 border-amber-100 hover:border-amber-300",
             },
             {
               icon: "📊",
-              title: "学习进度",
-              desc: "跟踪章节完成情况",
-              href: "/login",
+              title: "大纲路线",
+              desc: "入门级 5 大模块覆盖",
+              href: "/cspj",
               color: "bg-purple-50 border-purple-100 hover:border-purple-300",
             },
           ].map((item) => (
-            <Link key={item.href} href={item.href} className="block">
+            <Link key={`${item.title}-${item.href}`} href={item.href} className="block">
               <Card className={`border transition-all hover:shadow-md hover:-translate-y-0.5 ${item.color}`}>
                 <CardContent className="p-5 flex items-start gap-3">
                   <span className="text-2xl">{item.icon}</span>
@@ -176,7 +171,7 @@ export default function HomePage() {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-[#0f172a] mb-1">学习路径</h2>
-          <p className="text-sm text-[#64748b]">从零基础到 CSP-J 获奖，5个阶段循序渐进</p>
+          <p className="text-sm text-[#64748b]">从零基础到覆盖 CSP-J 入门级核心考点，5 个阶段循序渐进</p>
         </div>
 
         {/* 难度进度条 */}
@@ -230,15 +225,56 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 统计数据 ── */}
+      {/* ── 学习节奏 ── */}
       <section className="bg-white border-y border-[#e2e8f0]">
+        <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:px-8">
+          <div className="relative min-h-[260px] overflow-hidden rounded-xl">
+            <Image
+              src="/img/generated/cspj-roadmap-milestones.jpg"
+              alt="CSP-J 八周学习路线插图"
+              fill
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+          <div>
+            <Badge variant="info" className="mb-3">学习方法</Badge>
+            <h2 className="mb-2 text-2xl font-bold text-[#0f172a]">每周都有明确动作</h2>
+            <p className="mb-6 text-sm leading-6 text-[#64748b]">
+              CSP-J 入门级不靠突击堆题。更稳的方式是：先学一个小知识点，再做同主题练习，
+              最后用错题复盘把漏洞补上。
+            </p>
+            <div className="mb-6 grid gap-3 sm:grid-cols-3">
+              {studyPrinciples.map((item) => (
+                <Card key={item.title} className="shadow-none">
+                  <CardContent className="p-4">
+                    <h3 className="mb-2 text-sm font-semibold text-[#0f172a]">{item.title}</h3>
+                    <p className="text-xs leading-5 text-[#64748b]">{item.body}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            <div className="space-y-2">
+              {weeklyPracticePlan.map((item) => (
+                <div key={item} className="flex gap-2 text-sm leading-6 text-[#475569]">
+                  <span className="mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#2563eb]" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 统计数据 ── */}
+      <section>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {[
-              { value: "200+", label: "在线题目" },
-              { value: "50+", label: "教学章节" },
-              { value: "10+", label: "历年真题" },
-              { value: "5", label: "难度梯度" },
+              { value: String(cspjProblems.length), label: "首批训练题" },
+              { value: String(chapterSummaries.length), label: "教学章节" },
+              { value: String(syllabusModules.length), label: "大纲模块" },
+              { value: "1-5", label: "入门难度系数" },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-3xl font-bold text-[#2563eb] mb-1">{stat.value}</div>
@@ -249,18 +285,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── 学习进度入口 ── */}
+      {/* ── 学习路线入口 ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-gradient-to-r from-[#1e40af] to-[#2563eb] rounded-2xl p-8 md:p-12 text-white flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h2 className="text-2xl font-bold mb-2">记录你的学习轨迹</h2>
+            <h2 className="text-2xl font-bold mb-2">先走完一条清晰路线</h2>
             <p className="text-blue-100 text-sm md:text-base">
-              登录后自动保存学习进度，查看各章节完成情况
+              目前优先开放教程、路线和训练题；账号、进度和自动评测会在后续接入后开放。
             </p>
           </div>
-          <Link href="/register">
+          <Link href="/cspj">
             <Button size="lg" className="bg-white text-[#2563eb] hover:bg-blue-50 shadow-lg whitespace-nowrap">
-              立即开始学习
+              查看备考路线
             </Button>
           </Link>
         </div>

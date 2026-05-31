@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">位、字节与编码示意图</title>
+  <desc id="desc">标注 bit、Byte、二进制权值、ASCII 编码与字符转数字。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 3; }
+      .bit0 { fill: #e2e8f0; stroke: #94a3b8; stroke-width: 3; }
+      .bit1 { fill: #dbeafe; stroke: #2563eb; stroke-width: 3; }
+      .title { font: 700 42px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .label { font: 700 30px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .small { font: 500 22px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #334155; }
+      .tiny { font: 500 18px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #64748b; }
+      .code { font: 700 32px "SFMono-Regular", Consolas, monospace; fill: #1e293b; }
+      .arrow { stroke: #475569; stroke-width: 5; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1400" height="900"/>
+  <text class="title" x="80" y="82">进制与编码：计算机如何用 0 和 1 表示信息</text>
+  <text class="small" x="80" y="122">CSP-J 常考二进制权值、ASCII、字符和数字之间的转换。</text>
+
+  <rect class="card" x="80" y="175" width="1240" height="180" rx="28"/>
+  <text class="label" x="125" y="235">1 Byte = 8 bit</text>
+  <g transform="translate(420,220)">
+    <rect class="bit0" x="0" y="0" width="82" height="82" rx="16"/><text class="code" x="41" y="53" text-anchor="middle">0</text>
+    <rect class="bit1" x="100" y="0" width="82" height="82" rx="16"/><text class="code" x="141" y="53" text-anchor="middle">1</text>
+    <rect class="bit1" x="200" y="0" width="82" height="82" rx="16"/><text class="code" x="241" y="53" text-anchor="middle">1</text>
+    <rect class="bit0" x="300" y="0" width="82" height="82" rx="16"/><text class="code" x="341" y="53" text-anchor="middle">0</text>
+    <rect class="bit0" x="400" y="0" width="82" height="82" rx="16"/><text class="code" x="441" y="53" text-anchor="middle">0</text>
+    <rect class="bit0" x="500" y="0" width="82" height="82" rx="16"/><text class="code" x="541" y="53" text-anchor="middle">0</text>
+    <rect class="bit0" x="600" y="0" width="82" height="82" rx="16"/><text class="code" x="641" y="53" text-anchor="middle">0</text>
+    <rect class="bit1" x="700" y="0" width="82" height="82" rx="16"/><text class="code" x="741" y="53" text-anchor="middle">1</text>
+  </g>
+  <text class="tiny" x="810" y="327" text-anchor="middle">每个 bit 只有两种状态：0 或 1</text>
+
+  <rect class="card" x="80" y="405" width="600" height="300" rx="28"/>
+  <text class="label" x="125" y="465">二进制转十进制：看权值</text>
+  <text class="code" x="150" y="535">1011₂</text>
+  <path class="arrow" d="M 280 525 L 390 525"/>
+  <text class="small" x="420" y="515">1×2³ + 0×2² + 1×2¹ + 1×2⁰</text>
+  <text class="small" x="420" y="560">= 8 + 0 + 2 + 1</text>
+  <text class="label" x="420" y="625">= 11₁₀</text>
+  <text class="tiny" x="125" y="670">重点：越靠左权值越大，权值依次是 1、2、4、8、16……</text>
+
+  <rect class="card" x="730" y="405" width="590" height="300" rx="28"/>
+  <text class="label" x="775" y="465">ASCII：字符也用数字表示</text>
+  <text class="code" x="800" y="535">'A'</text>
+  <path class="arrow" d="M 895 525 L 1005 525"/>
+  <text class="label" x="1035" y="535">65</text>
+  <text class="code" x="800" y="610">'8' - '0'</text>
+  <path class="arrow" d="M 1010 600 L 1120 600"/>
+  <text class="label" x="1150" y="610">8</text>
+  <text class="tiny" x="775" y="670">注意：字符 '8' 不是整数 8，要用 '8' - '0' 转换。</text>
+
+  <rect x="180" y="760" width="1040" height="70" rx="24" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+  <text class="small" x="700" y="804" text-anchor="middle">考试提醒：不要把字符数字、整数数字、二进制数的写法混在一起。</text>
+</svg>

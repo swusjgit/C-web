@@ -1,7 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { chapterSummaries, getChapterGroups, type ChapterSummary as Chapter } from "@/lib/staticChapters";
+import { getChapterSyllabusMeta, getSyllabusCoverage } from "@/data/cspjSyllabus";
 
 interface Group {
   slug: string;
@@ -28,16 +30,42 @@ const DIFF_COLORS: Record<number, string> = {
 
 export default function TutorialsPage() {
   const groups: Group[] = getChapterGroups();
+  const coverage = getSyllabusCoverage(chapterSummaries);
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
       {/* 顶部提示 */}
-      <div className="mb-8 p-4 bg-[#eff6ff] rounded-xl border border-[#bfdbfe]">
-        <p className="text-sm text-[#1e40af]">
-          📖 点击左侧「目录」或下方分类卡片，开始学习。按 <strong>NOI 2025 大纲</strong> 编排，共{" "}
-          <strong>{chapterSummaries.length}</strong> 章。
-          {" "}每个分类均可展开查看章节列表。
-        </p>
+      <div className="mb-8 bg-white border border-[#dbeafe] rounded-lg overflow-hidden">
+        <div className="grid gap-5 bg-[#eff6ff] p-5 md:grid-cols-[1fr_260px] md:items-center">
+          <div>
+            <Badge variant="info" className="mb-3">NOI 2025 入门级</Badge>
+            <h1 className="text-xl font-bold text-[#0f172a] mb-2">教程中心</h1>
+            <p className="text-sm text-[#1e40af] leading-6">
+              按大纲模块组织现有 {chapterSummaries.length} 章内容。每章先给出学习目标和大纲位置，
+              后续会逐步补齐例题、练习和测评。
+            </p>
+          </div>
+          <div className="relative min-h-[140px] overflow-hidden rounded-lg border border-[#dbeafe] bg-white">
+            <Image
+              src="/img/generated/cspj-roadmap-milestones.jpg"
+              alt="CSP-J 学习模块路线插图"
+              fill
+              sizes="(min-width: 768px) 260px, 100vw"
+              className="object-cover"
+            />
+          </div>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-5 border-t border-[#dbeafe]">
+          {coverage.map((item) => (
+            <div key={item.slug} className="p-3 border-r last:border-r-0 border-[#e2e8f0]">
+              <div className="text-xs font-semibold text-[#2563eb] mb-1">{item.code}</div>
+              <div className="text-xs text-[#64748b] truncate">{item.name}</div>
+              <div className="text-sm font-bold text-[#0f172a] mt-1">
+                {item.availableCount}/{item.plannedCount}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
 
       {groups.length === 0 ? (
@@ -63,13 +91,14 @@ export default function TutorialsPage() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                   {group.chapters.map((ch) => {
                     const diffColor = DIFF_COLORS[ch.difficulty] || DIFF_COLORS[1];
+                    const meta = getChapterSyllabusMeta(ch);
                     return (
                       <Link key={ch.slug} href={`/cspj/tutorials/${ch.slug}`}>
                         <Card
                           className={`h-full border-l-4 ${colors.border} hover:shadow-md hover:border-[#2563eb] transition-all cursor-pointer group`}
                         >
                           <CardContent className="p-4">
-                            <div className="flex items-start justify-between gap-2">
+                            <div className="flex items-start justify-between gap-2 mb-2">
                               <div className="flex-1 min-w-0">
                                 <div className="flex items-center gap-1.5 mb-1">
                                   <span className="text-xs text-[#94a3b8]">{ch.order}.</span>
@@ -82,6 +111,17 @@ export default function TutorialsPage() {
                                 d{ch.difficulty}
                               </Badge>
                             </div>
+                            <div className="flex items-center gap-2 mb-2">
+                              <Badge variant="outline" className="text-[11px] px-2 py-0">
+                                {meta.code}
+                              </Badge>
+                              <span className="text-[11px] text-[#94a3b8] truncate">
+                                {meta.label}
+                              </span>
+                            </div>
+                            <p className="text-xs text-[#64748b] leading-5 line-clamp-2">
+                              {meta.target}
+                            </p>
                           </CardContent>
                         </Card>
                       </Link>

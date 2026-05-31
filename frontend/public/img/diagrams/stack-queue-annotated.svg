@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">栈和队列操作示意图</title>
+  <desc id="desc">标注栈的后进先出和队列的先进先出。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 3; }
+      .stack { fill: #dbeafe; stroke: #2563eb; stroke-width: 3; }
+      .queue { fill: #dcfce7; stroke: #16a34a; stroke-width: 3; }
+      .title { font: 700 42px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .label { font: 700 32px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .small { font: 500 22px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #334155; }
+      .tiny { font: 500 18px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #64748b; }
+      .num { font: 700 30px "SFMono-Regular", Consolas, monospace; fill: #1e293b; }
+      .arrow { stroke: #475569; stroke-width: 5; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1400" height="900"/>
+  <text class="title" x="80" y="82">栈与队列：取数据的顺序不同</text>
+  <text class="small" x="80" y="122">CSP-J 常考：操作后结构内部状态如何变化。</text>
+
+  <rect class="card" x="80" y="180" width="580" height="570" rx="30"/>
+  <text class="label" x="130" y="245">栈 stack：后进先出 LIFO</text>
+  <text class="small" x="130" y="285">push 从栈顶放入，pop 从栈顶取出。</text>
+  <g transform="translate(245,350)">
+    <path class="arrow" d="M 290 -65 L 290 8"/>
+    <text class="tiny" x="290" y="-82" text-anchor="middle">push(3)</text>
+    <rect class="stack" x="0" y="0" width="260" height="78" rx="14"/><text class="num" x="130" y="50" text-anchor="middle">3  栈顶 top</text>
+    <rect class="stack" x="0" y="92" width="260" height="78" rx="14"/><text class="num" x="130" y="142" text-anchor="middle">2</text>
+    <rect class="stack" x="0" y="184" width="260" height="78" rx="14"/><text class="num" x="130" y="234" text-anchor="middle">1  栈底</text>
+    <path class="arrow" d="M -65 39 L -5 39"/>
+    <text class="tiny" x="-80" y="28" text-anchor="middle">pop()</text>
+  </g>
+  <text class="small" x="130" y="690">例：括号匹配、递归调用、表达式求值。</text>
+
+  <rect class="card" x="740" y="180" width="580" height="570" rx="30"/>
+  <text class="label" x="790" y="245">队列 queue：先进先出 FIFO</text>
+  <text class="small" x="790" y="285">push 从队尾进入，pop 从队首离开。</text>
+  <g transform="translate(815,425)">
+    <path class="arrow" d="M -70 55 L -8 55"/>
+    <text class="tiny" x="-70" y="35" text-anchor="middle">pop()</text>
+    <rect class="queue" x="0" y="0" width="115" height="110" rx="14"/><text class="num" x="58" y="62" text-anchor="middle">1</text><text class="tiny" x="58" y="140" text-anchor="middle">队首 front</text>
+    <rect class="queue" x="135" y="0" width="115" height="110" rx="14"/><text class="num" x="192" y="62" text-anchor="middle">2</text>
+    <rect class="queue" x="270" y="0" width="115" height="110" rx="14"/><text class="num" x="328" y="62" text-anchor="middle">3</text><text class="tiny" x="328" y="140" text-anchor="middle">队尾 back</text>
+    <path class="arrow" d="M 470 55 L 392 55"/>
+    <text class="tiny" x="470" y="35" text-anchor="middle">push(4)</text>
+  </g>
+  <text class="small" x="790" y="690">例：BFS、层序遍历、排队处理任务。</text>
+
+  <rect x="205" y="790" width="990" height="64" rx="22" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+  <text class="small" x="700" y="831" text-anchor="middle">检查习惯：每次 push/pop 后，先问“下一个被取出的是谁？”</text>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">C++ 编译流程示意图</title>
+  <desc id="desc">标注源代码、预处理、编译、汇编、链接和可执行文件。</desc>
+  <defs>
+    <style>
+      .bg { fill: #f8fafc; }
+      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 3; }
+      .stage { fill: #ecfeff; stroke: #0891b2; stroke-width: 4; }
+      .file { fill: #fef3c7; stroke: #d97706; stroke-width: 4; }
+      .ok { fill: #dcfce7; stroke: #16a34a; stroke-width: 4; }
+      .error { fill: #fee2e2; stroke: #dc2626; stroke-width: 3; }
+      .title { font: 700 42px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .label { font: 700 28px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
+      .small { font: 500 21px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #334155; }
+      .tiny { font: 500 18px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #64748b; }
+      .code { font: 700 24px "SFMono-Regular", Consolas, monospace; fill: #1e293b; }
+      .arrow { stroke: #475569; stroke-width: 5; fill: none; marker-end: url(#arrow); }
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1400" height="900"/>
+  <text class="title" x="80" y="82">C++ 程序从代码到可执行文件</text>
+  <text class="small" x="80" y="122">理解编译流程，才能看懂“编译错误”和“链接错误”分别发生在哪里。</text>
+
+  <g transform="translate(80,210)">
+    <rect class="file" x="0" y="0" width="180" height="120" rx="24"/>
+    <text class="label" x="90" y="50" text-anchor="middle">源代码</text>
+    <text class="code" x="90" y="88" text-anchor="middle">main.cpp</text>
+    <path class="arrow" d="M 190 60 L 285 60"/>
+
+    <rect class="stage" x="300" y="0" width="180" height="120" rx="24"/>
+    <text class="label" x="390" y="50" text-anchor="middle">预处理</text>
+    <text class="tiny" x="390" y="86" text-anchor="middle">展开 #include</text>
+    <path class="arrow" d="M 490 60 L 585 60"/>
+
+    <rect class="stage" x="600" y="0" width="180" height="120" rx="24"/>
+    <text class="label" x="690" y="50" text-anchor="middle">编译</text>
+    <text class="tiny" x="690" y="86" text-anchor="middle">语法检查</text>
+    <path class="arrow" d="M 790 60 L 885 60"/>
+
+    <rect class="stage" x="900" y="0" width="180" height="120" rx="24"/>
+    <text class="label" x="990" y="50" text-anchor="middle">汇编</text>
+    <text class="tiny" x="990" y="86" text-anchor="middle">生成 .o</text>
+    <path class="arrow" d="M 1090 60 L 1185 60"/>
+
+    <rect class="ok" x="1200" y="0" width="180" height="120" rx="24"/>
+    <text class="label" x="1290" y="50" text-anchor="middle">链接</text>
+    <text class="tiny" x="1290" y="86" text-anchor="middle">合并库函数</text>
+  </g>
+
+  <path class="arrow" d="M 1280 340 C 1280 430, 1010 430, 1010 500"/>
+  <rect class="ok" x="850" y="500" width="320" height="120" rx="26"/>
+  <text class="label" x="1010" y="552" text-anchor="middle">可执行文件</text>
+  <text class="code" x="1010" y="592" text-anchor="middle">program / program.exe</text>
+
+  <rect class="box" x="100" y="500" width="620" height="240" rx="28"/>
+  <text class="label" x="145" y="560">常见错误发生位置</text>
+  <rect class="error" x="145" y="590" width="245" height="85" rx="18"/>
+  <text class="small" x="268" y="623" text-anchor="middle">少分号 / 拼写错</text>
+  <text class="tiny" x="268" y="654" text-anchor="middle">编译阶段报错</text>
+  <rect class="error" x="430" y="590" width="245" height="85" rx="18"/>
+  <text class="small" x="552" y="623" text-anchor="middle">缺 main / 函数未定义</text>
+  <text class="tiny" x="552" y="654" text-anchor="middle">链接阶段报错</text>
+  <text class="code" x="145" y="715">g++ -Wall -std=c++17 -o program main.cpp</text>
+
+  <rect x="220" y="790" width="960" height="64" rx="22" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+  <text class="small" x="700" y="831" text-anchor="middle">CSP-J 提醒：会写代码，也要能读懂编译信息的第一条真正错误。</text>
+</svg>
