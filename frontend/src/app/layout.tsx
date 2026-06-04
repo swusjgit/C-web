@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { assetPath } from "@/lib/assetPath";
 
 export const metadata: Metadata = {
   title: "数据谷中学C++学习网站",
   description: "面向中学生的 CSP-J 竞赛训练平台，基于 NOI大纲，系统梳理核心知识点",
   icons: {
-    icon: "/favicon.png",
+    icon: assetPath("/favicon.png"),
   },
 };
 

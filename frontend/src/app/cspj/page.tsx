@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { chapterSummaries } from "@/lib/staticChapters";
 import { cspjProblems } from "@/data/cspjProblems";
 import { getSyllabusCoverage, roadmapStages, studyPrinciples, weeklyPracticePlan } from "@/data/cspjSyllabus";
+import { assetPath } from "@/lib/assetPath";
 
 const coverage = getSyllabusCoverage(chapterSummaries);
 
@@ -41,7 +42,7 @@ export default function CSPJPage() {
         </div>
         <div className="relative min-h-[280px] overflow-hidden rounded-xl border border-[#e2e8f0]">
           <Image
-            src="/img/generated/cspj-practice-desk.jpg"
+            src={assetPath("/img/generated/cspj-practice-desk.jpg")}
             alt="学生练习 CSP-J 编程题的插图"
             fill
             sizes="(min-width: 1024px) 42vw, 100vw"

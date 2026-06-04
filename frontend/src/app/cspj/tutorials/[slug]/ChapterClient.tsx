@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { getChapterSyllabusMeta } from "@/data/cspjSyllabus";
+import { assetPath } from "@/lib/assetPath";
 import type { Chapter } from "@/lib/staticChapters";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { atomDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
@@ -34,7 +35,7 @@ function parseTableRow(line: string) {
 function MarkdownImage({ alt, src, inline = false }: { alt: string; src: string; inline?: boolean }) {
   const image = (
     <Image
-      src={src}
+      src={assetPath(src)}
       alt={alt}
       width={1400}
       height={900}

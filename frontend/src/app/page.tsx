@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { chapterSummaries } from "@/lib/staticChapters";
 import { cspjProblems } from "@/data/cspjProblems";
 import { studyPrinciples, syllabusModules, weeklyPracticePlan } from "@/data/cspjSyllabus";
+import { assetPath } from "@/lib/assetPath";
 
 const difficultyLevels = [
   {
@@ -61,7 +62,7 @@ export default function HomePage() {
       {/* ── Hero ── */}
       <section className="relative min-h-[560px] overflow-hidden text-white">
         <Image
-          src="/img/generated/cspj-hero-classroom.jpg"
+          src={assetPath("/img/generated/cspj-hero-classroom.jpg")}
           alt=""
           fill
           priority
@@ -229,8 +230,8 @@ export default function HomePage() {
       <section className="bg-white border-y border-[#e2e8f0]">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-16 sm:px-6 lg:grid-cols-[1fr_1.1fr] lg:px-8">
           <div className="relative min-h-[260px] overflow-hidden rounded-xl">
-            <Image
-              src="/img/generated/cspj-roadmap-milestones.jpg"
+              <Image
+                src={assetPath("/img/generated/cspj-roadmap-milestones.jpg")}
               alt="CSP-J 八周学习路线插图"
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"

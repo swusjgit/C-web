@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { chapterSummaries, getChapterGroups, type ChapterSummary as Chapter } from "@/lib/staticChapters";
 import { getChapterSyllabusMeta, getSyllabusCoverage } from "@/data/cspjSyllabus";
+import { assetPath } from "@/lib/assetPath";
 
 interface Group {
   slug: string;
@@ -47,7 +48,7 @@ export default function TutorialsPage() {
           </div>
           <div className="relative min-h-[140px] overflow-hidden rounded-lg border border-[#dbeafe] bg-white">
             <Image
-              src="/img/generated/cspj-roadmap-milestones.jpg"
+              src={assetPath("/img/generated/cspj-roadmap-milestones.jpg")}
               alt="CSP-J 学习模块路线插图"
               fill
               sizes="(min-width: 768px) 260px, 100vw"

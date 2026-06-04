@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { assetPath } from "@/lib/assetPath";
 
 const navLinks = [
   { href: "/cspj/tutorials", label: "教程" },
@@ -20,7 +21,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link href="/">
               <Image
-                src="/school-logo.png"
+                src={assetPath("/school-logo.png")}
                 alt="数据谷中学校徽"
                 width={240}
                 height={28}

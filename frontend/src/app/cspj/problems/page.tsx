@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { cspjProblems, getProblemsByStage } from "@/data/cspjProblems";
+import { assetPath } from "@/lib/assetPath";
 
 const difficultyConfig: Record<
   number,
@@ -54,7 +55,7 @@ export default function ProblemsPage() {
 
         <div className="relative min-h-[220px] overflow-hidden rounded-xl border border-[#e2e8f0] bg-white">
           <Image
-            src="/img/generated/cspj-practice-desk.jpg"
+            src={assetPath("/img/generated/cspj-practice-desk.jpg")}
             alt="CSP-J 练习场景插图"
             fill
             sizes="(min-width: 1024px) 360px, 100vw"
