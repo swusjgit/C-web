@@ -2,16 +2,6 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useEffect, useState } from "react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
 
 const navLinks = [
   { href: "/cspj/tutorials", label: "教程" },
@@ -20,46 +10,7 @@ const navLinks = [
   { href: "/about", label: "关于" },
 ];
 
-interface User {
-  id: number;
-  username: string;
-  email: string;
-  role: string;
-  status: string;
-}
-
 export default function Navbar() {
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("user");
-    if (stored) {
-      setUser(JSON.parse(stored));
-    }
-
-    const onAuthChange = () => {
-      const u = localStorage.getItem("user");
-      setUser(u ? JSON.parse(u) : null);
-    };
-    window.addEventListener("authChange", onAuthChange);
-    window.addEventListener("storage", (e) => {
-      if (e.key === "user" || e.key === "token") {
-        const u = localStorage.getItem("user");
-        setUser(u ? JSON.parse(u) : null);
-      }
-    });
-
-    return () => {
-      window.removeEventListener("authChange", onAuthChange);
-    };
-  }, []);
-
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    window.dispatchEvent(new Event("authChange"));
-    window.location.href = "/";
-  };
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white border-b border-[#e2e8f0] shadow-sm">
@@ -97,55 +48,8 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* 右：用户信息或登录/注册 */}
+          {/* 右：占位 */}
           <div className="flex items-center gap-3">
-            {user ? (
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="flex items-center gap-2 px-3">
-                    <Avatar className="h-8 w-8">
-                      <AvatarFallback className="bg-[#2563eb] text-white text-xs">
-                        {user.username.slice(0, 2).toUpperCase()}
-                      </AvatarFallback>
-                    </Avatar>
-                    <span className="text-sm font-medium text-[#334155] hidden sm:block">
-                      {user.username}
-                    </span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-48">
-                  <div className="px-2 py-1.5 text-sm text-[#64748b]">
-                    {user.role === "STUDENT" ? "学生" : user.role === "TEACHER" ? "教师" : "管理员"}
-                  </div>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem asChild>
-                    <Link href="/student">学习中心</Link>
-                  </DropdownMenuItem>
-                  {(user.role === "ADMIN" || user.role === "TEACHER") && (
-                    <DropdownMenuItem asChild>
-                      <Link href="/teacher">教师后台</Link>
-                    </DropdownMenuItem>
-                  )}
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={handleLogout} className="text-red-500 cursor-pointer">
-                    退出登录
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            ) : (
-              <>
-                <Link href="/login">
-                  <Button variant="ghost" size="sm" className="text-[#334155]">
-                    登录
-                  </Button>
-                </Link>
-                <Link href="/register">
-                  <Button size="sm" className="bg-[#2563eb] hover:bg-[#1d4ed8]">
-                    注册
-                  </Button>
-                </Link>
-              </>
-            )}
           </div>
         </div>
 

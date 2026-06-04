@@ -22,7 +22,6 @@ export default function Footer() {
                 { href: "/cspj/tutorials", label: "教程中心" },
                 { href: "/cspj/problems", label: "在线题库" },
                 { href: "/cspj", label: "模拟考试" },
-                { href: "/login", label: "登录/注册" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
