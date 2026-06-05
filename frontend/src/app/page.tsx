@@ -62,12 +62,12 @@ export default function HomePage() {
       {/* ── Hero ── */}
       <section className="relative min-h-[560px] overflow-hidden text-white">
         <Image
-          src={assetPath("/img/generated/cspj-hero-classroom.jpg")}
+          src={assetPath("/img/generated/cspj-hero-classroom-v2.jpg")}
           alt=""
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="object-cover object-[58%_center]"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0f172a]/90 via-[#1e40af]/70 to-[#1e40af]/15" />
 
