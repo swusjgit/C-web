@@ -22,7 +22,7 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link href="/">
               <Image
-                src={assetPath("/school-logo.png")}
+                src={assetPath("/school-logo-v2.png")}
                 alt="数据谷中学校徽"
                 width={258}
                 height={35}
