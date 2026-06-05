@@ -1,73 +1,69 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
   <title id="title">数组、二维数组与字符串示意图</title>
-  <desc id="desc">标注一维数组下标、二维数组行列和字符串字符位置。</desc>
+  <desc id="desc">展示一维数组下标、二维数组行列关系，以及字符数组和字符串结束符。</desc>
   <defs>
     <style>
       .bg { fill: #f8fafc; }
-      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 3; }
+      .panel { fill: #ffffff; stroke: #dbe3ef; stroke-width: 3; }
+      .title { font: 800 46px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .subtitle { font: 700 22px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .label { font: 800 30px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .small { font: 700 18px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #64748b; }
+      .code { font: 800 25px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #1e293b; }
       .cell { fill: #dbeafe; stroke: #2563eb; stroke-width: 3; }
-      .cell2 { fill: #dcfce7; stroke: #16a34a; stroke-width: 3; }
+      .matrix { fill: #dcfce7; stroke: #16a34a; stroke-width: 3; }
       .str { fill: #fef3c7; stroke: #d97706; stroke-width: 3; }
-      .title { font: 700 42px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
-      .label { font: 700 30px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
-      .small { font: 500 22px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #334155; }
-      .tiny { font: 500 18px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #64748b; }
-      .code { font: 700 28px "SFMono-Regular", Consolas, monospace; fill: #1e293b; }
+      .card { fill: #ffffff; stroke: #cbd5e1; stroke-width: 3; }
+      .tip { fill: #eff6ff; stroke: #93c5fd; stroke-width: 3; }
     </style>
   </defs>
 
   <rect class="bg" width="1400" height="900"/>
-  <text class="title" x="80" y="82">数组和字符串：用下标访问一组数据</text>
-  <text class="small" x="80" y="122">CSP-J 重点：下标从 0 开始、边界不能越界、二维数组先行后列。</text>
+  <rect class="panel" x="60" y="50" width="1280" height="800" rx="32"/>
+  <text class="title" x="120" y="130">数组、二维数组与字符串</text>
+  <text class="subtitle" x="120" y="172">数组靠下标定位，字符串本质上也是一串连续字符。</text>
 
-  <rect class="card" x="80" y="175" width="1240" height="190" rx="28"/>
-  <text class="label" x="125" y="235">一维数组 int a[5]</text>
-  <g transform="translate(420,225)">
-    <rect class="cell" x="0" y="0" width="120" height="72" rx="12"/><text class="code" x="60" y="46" text-anchor="middle">12</text><text class="tiny" x="60" y="105" text-anchor="middle">a[0]</text>
-    <rect class="cell" x="135" y="0" width="120" height="72" rx="12"/><text class="code" x="195" y="46" text-anchor="middle">8</text><text class="tiny" x="195" y="105" text-anchor="middle">a[1]</text>
-    <rect class="cell" x="270" y="0" width="120" height="72" rx="12"/><text class="code" x="330" y="46" text-anchor="middle">31</text><text class="tiny" x="330" y="105" text-anchor="middle">a[2]</text>
-    <rect class="cell" x="405" y="0" width="120" height="72" rx="12"/><text class="code" x="465" y="46" text-anchor="middle">4</text><text class="tiny" x="465" y="105" text-anchor="middle">a[3]</text>
-    <rect class="cell" x="540" y="0" width="120" height="72" rx="12"/><text class="code" x="600" y="46" text-anchor="middle">19</text><text class="tiny" x="600" y="105" text-anchor="middle">a[4]</text>
-  </g>
-  <text class="small" x="125" y="320">合法下标：0 到 4</text>
-
-  <rect class="card" x="80" y="410" width="610" height="340" rx="28"/>
-  <text class="label" x="125" y="470">二维数组 a[3][4]</text>
-  <text class="tiny" x="125" y="505">先写行号 i，再写列号 j：a[i][j]</text>
-  <g transform="translate(235,535)">
-    <text class="tiny" x="-55" y="43">第0行</text>
-    <text class="tiny" x="-55" y="113">第1行</text>
-    <text class="tiny" x="-55" y="183">第2行</text>
-    <text class="tiny" x="42" y="-16" text-anchor="middle">第0列</text>
-    <text class="tiny" x="132" y="-16" text-anchor="middle">第1列</text>
-    <text class="tiny" x="222" y="-16" text-anchor="middle">第2列</text>
-    <text class="tiny" x="312" y="-16" text-anchor="middle">第3列</text>
-    <g>
-      <rect class="cell2" x="0" y="0" width="80" height="58" rx="8"/><text class="code" x="40" y="38" text-anchor="middle">1</text>
-      <rect class="cell2" x="90" y="0" width="80" height="58" rx="8"/><text class="code" x="130" y="38" text-anchor="middle">2</text>
-      <rect class="cell2" x="180" y="0" width="80" height="58" rx="8"/><text class="code" x="220" y="38" text-anchor="middle">3</text>
-      <rect class="cell2" x="270" y="0" width="80" height="58" rx="8"/><text class="code" x="310" y="38" text-anchor="middle">4</text>
-      <rect class="cell2" x="0" y="70" width="80" height="58" rx="8"/><text class="code" x="40" y="108" text-anchor="middle">5</text>
-      <rect class="cell2" x="90" y="70" width="80" height="58" rx="8"/><text class="code" x="130" y="108" text-anchor="middle">6</text>
-      <rect class="cell2" x="180" y="70" width="80" height="58" rx="8"/><text class="code" x="220" y="108" text-anchor="middle">7</text>
-      <rect class="cell2" x="270" y="70" width="80" height="58" rx="8"/><text class="code" x="310" y="108" text-anchor="middle">8</text>
-      <rect class="cell2" x="0" y="140" width="80" height="58" rx="8"/><text class="code" x="40" y="178" text-anchor="middle">9</text>
-      <rect class="cell2" x="90" y="140" width="80" height="58" rx="8"/><text class="code" x="130" y="178" text-anchor="middle">10</text>
-      <rect class="cell2" x="180" y="140" width="80" height="58" rx="8"/><text class="code" x="220" y="178" text-anchor="middle">11</text>
-      <rect class="cell2" x="270" y="140" width="80" height="58" rx="8"/><text class="code" x="310" y="178" text-anchor="middle">12</text>
+  <g transform="translate(120 230)">
+    <rect class="card" x="0" y="0" width="1160" height="180" rx="28"/>
+    <text class="label" x="40" y="56">一维数组：下标从 0 开始</text>
+    <g transform="translate(40 88)">
+      <rect class="cell" x="0" y="0" width="120" height="66" rx="12"/><text class="code" x="60" y="42" text-anchor="middle">12</text><text class="small" x="60" y="98" text-anchor="middle">a[0]</text>
+      <rect class="cell" x="145" y="0" width="120" height="66" rx="12"/><text class="code" x="205" y="42" text-anchor="middle">8</text><text class="small" x="205" y="98" text-anchor="middle">a[1]</text>
+      <rect class="cell" x="290" y="0" width="120" height="66" rx="12"/><text class="code" x="350" y="42" text-anchor="middle">31</text><text class="small" x="350" y="98" text-anchor="middle">a[2]</text>
+      <rect class="cell" x="435" y="0" width="120" height="66" rx="12"/><text class="code" x="495" y="42" text-anchor="middle">4</text><text class="small" x="495" y="98" text-anchor="middle">a[3]</text>
+      <rect class="cell" x="580" y="0" width="120" height="66" rx="12"/><text class="code" x="640" y="42" text-anchor="middle">19</text><text class="small" x="640" y="98" text-anchor="middle">a[4]</text>
     </g>
+    <text class="small" x="900" y="116" text-anchor="middle">长度为 5 的数组，合法下标是 0 到 4。</text>
   </g>
 
-  <rect class="card" x="730" y="410" width="590" height="340" rx="28"/>
-  <text class="label" x="775" y="470">字符串 string s = "CSPJ"</text>
-  <g transform="translate(810,540)">
-    <rect class="str" x="0" y="0" width="105" height="78" rx="12"/><text class="code" x="52" y="49" text-anchor="middle">C</text><text class="tiny" x="52" y="110" text-anchor="middle">s[0]</text>
-    <rect class="str" x="120" y="0" width="105" height="78" rx="12"/><text class="code" x="172" y="49" text-anchor="middle">S</text><text class="tiny" x="172" y="110" text-anchor="middle">s[1]</text>
-    <rect class="str" x="240" y="0" width="105" height="78" rx="12"/><text class="code" x="292" y="49" text-anchor="middle">P</text><text class="tiny" x="292" y="110" text-anchor="middle">s[2]</text>
-    <rect class="str" x="360" y="0" width="105" height="78" rx="12"/><text class="code" x="412" y="49" text-anchor="middle">J</text><text class="tiny" x="412" y="110" text-anchor="middle">s[3]</text>
-  </g>
-  <text class="small" x="775" y="700">长度 s.length() = 4，最后一个合法下标是 3。</text>
+  <g transform="translate(120 465)">
+    <rect class="card" x="0" y="0" width="560" height="270" rx="28"/>
+    <text class="label" x="40" y="56">二维数组：行和列</text>
+    <g transform="translate(70 95)">
+      <rect class="matrix" x="0" y="0" width="82" height="54" rx="8"/><text class="code" x="41" y="36" text-anchor="middle">1</text>
+      <rect class="matrix" x="94" y="0" width="82" height="54" rx="8"/><text class="code" x="135" y="36" text-anchor="middle">2</text>
+      <rect class="matrix" x="188" y="0" width="82" height="54" rx="8"/><text class="code" x="229" y="36" text-anchor="middle">3</text>
+      <rect class="matrix" x="0" y="66" width="82" height="54" rx="8"/><text class="code" x="41" y="102" text-anchor="middle">4</text>
+      <rect class="matrix" x="94" y="66" width="82" height="54" rx="8"/><text class="code" x="135" y="102" text-anchor="middle">5</text>
+      <rect class="matrix" x="188" y="66" width="82" height="54" rx="8"/><text class="code" x="229" y="102" text-anchor="middle">6</text>
+      <rect class="matrix" x="0" y="132" width="82" height="54" rx="8"/><text class="code" x="41" y="168" text-anchor="middle">7</text>
+      <rect class="matrix" x="94" y="132" width="82" height="54" rx="8"/><text class="code" x="135" y="168" text-anchor="middle">8</text>
+      <rect class="matrix" x="188" y="132" width="82" height="54" rx="8"/><text class="code" x="229" y="168" text-anchor="middle">9</text>
+    </g>
+    <text class="small" x="380" y="142" text-anchor="middle">a[行][列]</text>
+    <text class="small" x="380" y="176" text-anchor="middle">先行后列</text>
 
-  <rect x="210" y="790" width="980" height="64" rx="22" fill="#fff7ed" stroke="#fdba74" stroke-width="3"/>
-  <text class="small" x="700" y="831" text-anchor="middle">易错点：循环条件常写成 i &lt; n，不要写成 i &lt;= n 导致越界。</text>
+    <rect class="card" x="640" y="0" width="520" height="270" rx="28"/>
+    <text class="label" x="680" y="56">字符数组与 string</text>
+    <g transform="translate(680 105)">
+      <rect class="str" x="0" y="0" width="70" height="60" rx="10"/><text class="code" x="35" y="39" text-anchor="middle">C</text>
+      <rect class="str" x="82" y="0" width="70" height="60" rx="10"/><text class="code" x="117" y="39" text-anchor="middle">S</text>
+      <rect class="str" x="164" y="0" width="70" height="60" rx="10"/><text class="code" x="199" y="39" text-anchor="middle">P</text>
+      <rect class="str" x="246" y="0" width="70" height="60" rx="10"/><text class="code" x="281" y="39" text-anchor="middle">\0</text>
+    </g>
+    <text class="small" x="680" y="198">字符数组需要结束符 \0；string 会自动管理长度。</text>
+  </g>
+
+  <rect class="tip" x="250" y="782" width="900" height="58" rx="20"/>
+  <text class="subtitle" x="700" y="819" text-anchor="middle">CSP-J 易错：数组长度为 n，最后一个下标是 n-1。</text>
 </svg>

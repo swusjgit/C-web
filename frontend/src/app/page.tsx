@@ -122,7 +122,7 @@ export default function HomePage() {
 
       {/* ── CSP-J 专区入口 ── */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-6 relative z-10">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
           {[
             {
               icon: "📖",
@@ -137,6 +137,13 @@ export default function HomePage() {
               desc: `${cspjProblems.length} 道首批精选题`,
               href: "/cspj/problems",
               color: "bg-green-50 border-green-100 hover:border-green-300",
+            },
+            {
+              icon: "📁",
+              title: "资料下载",
+              desc: "真题索引与答案解析",
+              href: "/resources",
+              color: "bg-cyan-50 border-cyan-100 hover:border-cyan-300",
             },
             {
               icon: "📝",

@@ -1,73 +1,73 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
   <title id="title">计算机系统基本构成示意图</title>
-  <desc id="desc">标注 CPU、内存、硬盘、输入设备、输出设备和总线之间的数据流关系。</desc>
+  <desc id="desc">展示输入设备、CPU、内存、硬盘、输出设备之间的数据流动关系。</desc>
   <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#475569"/>
+    </marker>
+    <filter id="shadow" x="-8%" y="-10%" width="116%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
     <style>
       .bg { fill: #f8fafc; }
-      .panel { fill: #ffffff; stroke: #cbd5e1; stroke-width: 3; }
+      .panel { fill: #ffffff; stroke: #dbe3ef; stroke-width: 3; }
+      .title { font: 800 46px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .subtitle { font: 700 22px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .label { font: 800 30px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .small { font: 700 20px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #64748b; }
+      .code { font: 800 22px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #1e293b; }
+      .arrow { fill: none; stroke: #475569; stroke-width: 6; marker-end: url(#arrow); }
+      .io { fill: #fce7f3; stroke: #db2777; stroke-width: 4; }
       .cpu { fill: #dbeafe; stroke: #2563eb; stroke-width: 4; }
       .ram { fill: #dcfce7; stroke: #16a34a; stroke-width: 4; }
       .disk { fill: #fef3c7; stroke: #d97706; stroke-width: 4; }
-      .io { fill: #fce7f3; stroke: #db2777; stroke-width: 4; }
-      .bus { stroke: #475569; stroke-width: 5; fill: none; marker-end: url(#arrow); }
-      .bus2 { stroke: #475569; stroke-width: 5; fill: none; marker-start: url(#arrow); marker-end: url(#arrow); }
-      .title { font: 700 42px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
-      .label { font: 700 32px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
-      .small { font: 500 22px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #334155; }
-      .tiny { font: 500 18px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #64748b; }
-      .code { font: 600 24px "SFMono-Regular", Consolas, monospace; fill: #1e293b; }
+      .tip { fill: #eff6ff; stroke: #93c5fd; stroke-width: 3; }
     </style>
-    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
-      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569" />
-    </marker>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
-      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.12"/>
-    </filter>
   </defs>
 
   <rect class="bg" width="1400" height="900"/>
-  <text class="title" x="80" y="82">计算机的基本构成：程序和数据如何流动</text>
-  <text class="small" x="80" y="122">CSP-J 需要能区分：谁负责计算、谁临时保存、谁长期保存、谁负责输入输出。</text>
+  <rect class="panel" x="60" y="50" width="1280" height="800" rx="32" filter="url(#shadow)"/>
 
-  <rect class="panel" x="80" y="170" width="1240" height="610" rx="32" filter="url(#shadow)"/>
+  <text class="title" x="120" y="130">计算机的基本构成</text>
+  <text class="subtitle" x="120" y="172">程序运行时：CPU 负责计算，内存保存正在使用的数据，硬盘长期保存文件。</text>
 
-  <rect class="io" x="120" y="305" width="220" height="150" rx="22"/>
-  <text class="label" x="230" y="360" text-anchor="middle">输入设备</text>
-  <text class="small" x="230" y="402" text-anchor="middle">键盘 / 鼠标</text>
-  <text class="tiny" x="230" y="435" text-anchor="middle">把信息送进计算机</text>
+  <g transform="translate(120 285)">
+    <rect class="io" x="0" y="0" width="210" height="130" rx="24"/>
+    <text class="label" x="105" y="54" text-anchor="middle">输入设备</text>
+    <text class="small" x="105" y="92" text-anchor="middle">键盘 / 鼠标</text>
 
-  <rect class="cpu" x="520" y="250" width="360" height="230" rx="28"/>
-  <text class="label" x="700" y="310" text-anchor="middle">CPU 中央处理器</text>
-  <rect x="560" y="340" width="140" height="92" rx="16" fill="#eff6ff" stroke="#60a5fa" stroke-width="2"/>
-  <text class="small" x="630" y="378" text-anchor="middle">控制器</text>
-  <text class="tiny" x="630" y="410" text-anchor="middle">取指令、发命令</text>
-  <rect x="720" y="340" width="120" height="92" rx="16" fill="#eff6ff" stroke="#60a5fa" stroke-width="2"/>
-  <text class="small" x="780" y="378" text-anchor="middle">运算器</text>
-  <text class="tiny" x="780" y="410" text-anchor="middle">做计算</text>
+    <path class="arrow" d="M235 65 H335"/>
 
-  <rect class="ram" x="520" y="575" width="360" height="120" rx="24"/>
-  <text class="label" x="700" y="627" text-anchor="middle">内存 RAM</text>
-  <text class="small" x="700" y="666" text-anchor="middle">临时保存正在运行的程序和数据</text>
+    <rect class="cpu" x="360" y="-25" width="310" height="180" rx="28"/>
+    <text class="label" x="515" y="44" text-anchor="middle">CPU</text>
+    <text class="small" x="515" y="84" text-anchor="middle">执行指令、完成计算</text>
+    <rect x="420" y="105" width="110" height="42" rx="12" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+    <text class="code" x="475" y="132" text-anchor="middle">ALU</text>
+    <rect x="545" y="105" width="110" height="42" rx="12" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+    <text class="code" x="600" y="132" text-anchor="middle">控制器</text>
 
-  <rect class="disk" x="1000" y="300" width="240" height="165" rx="24"/>
-  <text class="label" x="1120" y="360" text-anchor="middle">硬盘 / SSD</text>
-  <text class="small" x="1120" y="403" text-anchor="middle">长期保存文件</text>
-  <text class="tiny" x="1120" y="435" text-anchor="middle">断电后仍保留</text>
+    <path class="arrow" d="M695 65 H795"/>
 
-  <rect class="io" x="1000" y="575" width="240" height="120" rx="24"/>
-  <text class="label" x="1120" y="627" text-anchor="middle">输出设备</text>
-  <text class="small" x="1120" y="666" text-anchor="middle">显示器 / 打印机</text>
+    <rect class="io" x="820" y="0" width="210" height="130" rx="24"/>
+    <text class="label" x="925" y="54" text-anchor="middle">输出设备</text>
+    <text class="small" x="925" y="92" text-anchor="middle">显示器 / 打印机</text>
+  </g>
 
-  <path class="bus" d="M 340 380 C 420 380, 455 365, 510 365"/>
-  <path class="bus2" d="M 880 365 C 925 365, 955 365, 995 365"/>
-  <path class="bus2" d="M 700 480 L 700 570"/>
-  <path class="bus" d="M 880 420 C 930 485, 950 585, 995 625"/>
+  <g transform="translate(410 535)">
+    <rect class="ram" x="0" y="0" width="330" height="130" rx="24"/>
+    <text class="label" x="165" y="52" text-anchor="middle">内存 RAM</text>
+    <text class="small" x="165" y="92" text-anchor="middle">临时保存运行中的程序</text>
 
-  <rect x="430" y="510" width="540" height="42" rx="21" fill="#e2e8f0"/>
-  <text class="small" x="700" y="539" text-anchor="middle">系统总线：传递指令、地址和数据</text>
+    <rect class="disk" x="500" y="0" width="330" height="130" rx="24"/>
+    <text class="label" x="665" y="52" text-anchor="middle">硬盘</text>
+    <text class="small" x="665" y="92" text-anchor="middle">长期保存 .cpp 和文件</text>
 
-  <text class="code" x="135" y="735">main.cpp</text>
-  <path class="bus" d="M 235 725 C 360 760, 500 742, 595 695"/>
-  <text class="tiny" x="365" y="775" text-anchor="middle">运行前：源代码和可执行文件在硬盘</text>
-  <text class="tiny" x="700" y="742" text-anchor="middle">运行时：程序被加载到内存，CPU 从内存取指令执行</text>
+    <path class="arrow" d="M360 65 H475"/>
+  </g>
+
+  <path class="arrow" d="M585 455 V515"/>
+  <path class="arrow" d="M1075 535 C1075 460 720 460 665 455"/>
+
+  <rect class="tip" x="220" y="760" width="960" height="58" rx="20"/>
+  <text class="subtitle" x="700" y="797" text-anchor="middle">CSP-J 重点：分清“正在运行的内存”和“长期保存的硬盘”。</text>
 </svg>

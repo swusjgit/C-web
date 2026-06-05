@@ -1,71 +1,94 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
   <title id="title">C++ 编译流程示意图</title>
-  <desc id="desc">标注源代码、预处理、编译、汇编、链接和可执行文件。</desc>
+  <desc id="desc">展示 C++ 源代码经过预处理、编译、汇编、链接后生成可执行文件，并标注常见错误发生位置。</desc>
   <defs>
-    <style>
-      .bg { fill: #f8fafc; }
-      .box { fill: #ffffff; stroke: #cbd5e1; stroke-width: 3; }
-      .stage { fill: #ecfeff; stroke: #0891b2; stroke-width: 4; }
-      .file { fill: #fef3c7; stroke: #d97706; stroke-width: 4; }
-      .ok { fill: #dcfce7; stroke: #16a34a; stroke-width: 4; }
-      .error { fill: #fee2e2; stroke: #dc2626; stroke-width: 3; }
-      .title { font: 700 42px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
-      .label { font: 700 28px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #0f172a; }
-      .small { font: 500 21px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #334155; }
-      .tiny { font: 500 18px "PingFang SC", "Microsoft YaHei", sans-serif; fill: #64748b; }
-      .code { font: 700 24px "SFMono-Regular", Consolas, monospace; fill: #1e293b; }
-      .arrow { stroke: #475569; stroke-width: 5; fill: none; marker-end: url(#arrow); }
-    </style>
-    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto">
       <path d="M0,0 L10,5 L0,10 Z" fill="#475569"/>
     </marker>
+    <filter id="shadow" x="-8%" y="-10%" width="116%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0f172a" flood-opacity="0.12"/>
+    </filter>
+    <style>
+      .bg { fill: #f8fafc; }
+      .panel { fill: #ffffff; stroke: #dbe3ef; stroke-width: 3; }
+      .title { font: 800 46px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .subtitle { font: 700 22px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .label { font: 800 27px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #0f172a; }
+      .small { font: 700 18px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #64748b; }
+      .hint { font: 700 18px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #334155; }
+      .code { font: 800 21px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #1e293b; }
+      .flow { fill: none; stroke: #475569; stroke-width: 6; marker-end: url(#arrow); }
+      .source { fill: #fff7d6; stroke: #d97706; stroke-width: 4; }
+      .stage { fill: #e7fbff; stroke: #0891b2; stroke-width: 4; }
+      .object { fill: #ecfdf5; stroke: #16a34a; stroke-width: 4; }
+      .error { fill: #fee2e2; stroke: #dc2626; stroke-width: 3; }
+      .tip { fill: #eff6ff; stroke: #93c5fd; stroke-width: 3; }
+      .tag { fill: #f8fafc; stroke: #cbd5e1; stroke-width: 2; }
+    </style>
   </defs>
 
   <rect class="bg" width="1400" height="900"/>
-  <text class="title" x="80" y="82">C++ 程序从代码到可执行文件</text>
-  <text class="small" x="80" y="122">理解编译流程，才能看懂“编译错误”和“链接错误”分别发生在哪里。</text>
+  <rect class="panel" x="52" y="50" width="1296" height="800" rx="32" filter="url(#shadow)"/>
 
-  <g transform="translate(80,210)">
-    <rect class="file" x="0" y="0" width="180" height="120" rx="24"/>
-    <text class="label" x="90" y="50" text-anchor="middle">源代码</text>
-    <text class="code" x="90" y="88" text-anchor="middle">main.cpp</text>
-    <path class="arrow" d="M 190 60 L 285 60"/>
+  <text class="title" x="120" y="130">C++ 程序从代码到可执行文件</text>
+  <text class="subtitle" x="120" y="172">按顺序读这张图：源代码先被翻译，最后才生成能运行的程序。</text>
 
-    <rect class="stage" x="300" y="0" width="180" height="120" rx="24"/>
-    <text class="label" x="390" y="50" text-anchor="middle">预处理</text>
-    <text class="tiny" x="390" y="86" text-anchor="middle">展开 #include</text>
-    <path class="arrow" d="M 490 60 L 585 60"/>
+  <rect class="tag" x="120" y="205" width="230" height="42" rx="14"/>
+  <text class="hint" x="235" y="232" text-anchor="middle">第一层：翻译源代码</text>
 
-    <rect class="stage" x="600" y="0" width="180" height="120" rx="24"/>
-    <text class="label" x="690" y="50" text-anchor="middle">编译</text>
-    <text class="tiny" x="690" y="86" text-anchor="middle">语法检查</text>
-    <path class="arrow" d="M 790 60 L 885 60"/>
+  <g transform="translate(120 270)">
+    <rect class="source" x="0" y="0" width="190" height="110" rx="24"/>
+    <text class="label" x="95" y="45" text-anchor="middle">源代码</text>
+    <text class="code" x="95" y="80" text-anchor="middle">main.cpp</text>
 
-    <rect class="stage" x="900" y="0" width="180" height="120" rx="24"/>
-    <text class="label" x="990" y="50" text-anchor="middle">汇编</text>
-    <text class="tiny" x="990" y="86" text-anchor="middle">生成 .o</text>
-    <path class="arrow" d="M 1090 60 L 1185 60"/>
+    <path class="flow" d="M210 55 H280"/>
 
-    <rect class="ok" x="1200" y="0" width="180" height="120" rx="24"/>
-    <text class="label" x="1290" y="50" text-anchor="middle">链接</text>
-    <text class="tiny" x="1290" y="86" text-anchor="middle">合并库函数</text>
+    <rect class="stage" x="300" y="0" width="190" height="110" rx="24"/>
+    <text class="label" x="395" y="43" text-anchor="middle">预处理</text>
+    <text class="small" x="395" y="78" text-anchor="middle">展开 #include</text>
+
+    <path class="flow" d="M510 55 H580"/>
+
+    <rect class="stage" x="600" y="0" width="190" height="110" rx="24"/>
+    <text class="label" x="695" y="43" text-anchor="middle">编译</text>
+    <text class="small" x="695" y="78" text-anchor="middle">检查语法</text>
+
+    <path class="flow" d="M810 55 H880"/>
+
+    <rect class="stage" x="900" y="0" width="190" height="110" rx="24"/>
+    <text class="label" x="995" y="43" text-anchor="middle">汇编</text>
+    <text class="small" x="995" y="78" text-anchor="middle">生成 .o</text>
   </g>
 
-  <path class="arrow" d="M 1280 340 C 1280 430, 1010 430, 1010 500"/>
-  <rect class="ok" x="850" y="500" width="320" height="120" rx="26"/>
-  <text class="label" x="1010" y="552" text-anchor="middle">可执行文件</text>
-  <text class="code" x="1010" y="592" text-anchor="middle">program / program.exe</text>
+  <path class="flow" d="M1115 382 C1115 430 835 430 835 472"/>
 
-  <rect class="box" x="100" y="500" width="620" height="240" rx="28"/>
-  <text class="label" x="145" y="560">常见错误发生位置</text>
-  <rect class="error" x="145" y="590" width="245" height="85" rx="18"/>
-  <text class="small" x="268" y="623" text-anchor="middle">少分号 / 拼写错</text>
-  <text class="tiny" x="268" y="654" text-anchor="middle">编译阶段报错</text>
-  <rect class="error" x="430" y="590" width="245" height="85" rx="18"/>
-  <text class="small" x="552" y="623" text-anchor="middle">缺 main / 函数未定义</text>
-  <text class="tiny" x="552" y="654" text-anchor="middle">链接阶段报错</text>
-  <text class="code" x="145" y="715">g++ -Wall -std=c++17 -o program main.cpp</text>
+  <rect class="tag" x="720" y="410" width="230" height="42" rx="14"/>
+  <text class="hint" x="835" y="437" text-anchor="middle">第二层：组合成程序</text>
 
-  <rect x="220" y="790" width="960" height="64" rx="22" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
-  <text class="small" x="700" y="831" text-anchor="middle">CSP-J 提醒：会写代码，也要能读懂编译信息的第一条真正错误。</text>
+  <g transform="translate(720 485)">
+    <rect class="stage" x="0" y="0" width="190" height="110" rx="24"/>
+    <text class="label" x="95" y="43" text-anchor="middle">链接</text>
+    <text class="small" x="95" y="78" text-anchor="middle">合并库函数</text>
+
+    <path class="flow" d="M210 55 H280"/>
+
+    <rect class="object" x="300" y="0" width="230" height="110" rx="24"/>
+    <text class="label" x="415" y="43" text-anchor="middle">可执行文件</text>
+    <text class="code" x="415" y="80" text-anchor="middle">program.exe</text>
+  </g>
+
+  <g transform="translate(120 530)">
+    <rect class="panel" x="0" y="0" width="560" height="210" rx="26"/>
+    <text class="label" x="40" y="55">常见错误发生位置</text>
+    <rect class="error" x="40" y="82" width="225" height="70" rx="18"/>
+    <text class="hint" x="152" y="111" text-anchor="middle">少分号 / 拼写错</text>
+    <text class="small" x="152" y="141" text-anchor="middle">编译阶段报错</text>
+    <rect class="error" x="295" y="82" width="225" height="70" rx="18"/>
+    <text class="hint" x="408" y="111" text-anchor="middle">缺 main / 函数未定义</text>
+    <text class="small" x="408" y="141" text-anchor="middle">链接阶段报错</text>
+    <text class="code" x="40" y="188">g++ -Wall -std=c++17 -o program main.cpp</text>
+  </g>
+
+  <rect class="tip" x="240" y="780" width="920" height="58" rx="20"/>
+  <text class="subtitle" x="700" y="817" text-anchor="middle">CSP-J 提醒：先读第一条真正的报错，再回到对应代码附近检查。</text>
 </svg>

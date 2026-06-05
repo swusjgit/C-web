@@ -49,14 +49,14 @@ function MarkdownImage({ alt, src, inline = false }: { alt: string; src: string;
 
   if (inline) {
     return (
-      <span className="my-2 block w-full max-w-[880px] overflow-hidden rounded-xl border border-[#e2e8f0] bg-white shadow-sm">
+      <span className="my-2 block w-full max-w-[880px] overflow-x-auto rounded-xl border border-[#e2e8f0] bg-white shadow-sm">
         {image}
       </span>
     );
   }
 
   return (
-    <figure className="my-5 block w-full max-w-[880px] overflow-hidden rounded-xl border border-[#e2e8f0] bg-white shadow-sm">
+    <figure className="my-5 block w-full max-w-[880px] overflow-x-auto rounded-xl border border-[#e2e8f0] bg-white shadow-sm">
       {image}
       {alt ? (
         <figcaption className="px-4 py-2 text-xs text-[#64748b]">

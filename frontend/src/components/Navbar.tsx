@@ -7,6 +7,7 @@ import { assetPath } from "@/lib/assetPath";
 const navLinks = [
   { href: "/cspj/tutorials", label: "教程" },
   { href: "/cspj/problems", label: "题库" },
+  { href: "/resources", label: "资料" },
   { href: "/cspj", label: "模拟考试" },
   { href: "/about", label: "关于" },
 ];
@@ -23,9 +24,9 @@ export default function Navbar() {
               <Image
                 src={assetPath("/school-logo.png")}
                 alt="数据谷中学校徽"
-                width={240}
-                height={28}
-                className="object-contain"
+                width={258}
+                height={35}
+                className="h-9 w-auto object-contain"
                 priority
               />
             </Link>
